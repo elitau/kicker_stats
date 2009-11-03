@@ -1,0 +1,24 @@
+<h1>Listing games</h1>
+
+<table>
+  <tr>
+    <th>White player</th>
+    <th>Yellow player</th>
+    <th>Winner</th>
+  </tr>
+
+<% @games.each do |game| %>
+  <tr>
+    <td><%=h game.white_player.name %></td>
+    <td><%=h game.yellow_player.name %></td>
+    <td><%=h((w = game.winner) ? w.name : "Nobody") %></td>
+    <td><%= link_to 'Show', game %></td>
+    <td><%# link_to 'Edit', edit_game_path(game) %></td>
+    <td><%# link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New game', new_game_path %>

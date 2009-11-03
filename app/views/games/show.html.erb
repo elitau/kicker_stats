@@ -1,0 +1,28 @@
+<p>
+  <b>White player:</b>
+  <%=h @game.white_player_id %>
+</p>
+
+<p>
+  <b>Yellow player:</b>
+  <%=h @game.yellow_player_id %>
+</p>
+
+<p>
+  <b>White goals:</b>
+  <%=h @game.white_goals %>
+</p>
+
+<p>
+  <b>Yellow goals:</b>
+  <%=h @game.yellow_goals %>
+</p>
+
+<p>
+  <b>Goals to win:</b>
+  <%=h @game.goals_to_win %>
+</p>
+
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>
