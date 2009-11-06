@@ -1,8 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :player_sessions
   map.resources :players
-
   map.resources :games
 
+  map.login "login", :controller => "player_sessions", :action => "new"
+  map.logout "logout", :controller => "player_sessions", :action => "destroy"
+  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
