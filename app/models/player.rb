@@ -1,4 +1,8 @@
 class Player < ActiveRecord::Base
-  validates_uniqueness_of :name
+  acts_as_authentic
+  
+  validates_uniqueness_of :username
+  validates_presence_of :username
+
   has_one :game
 end

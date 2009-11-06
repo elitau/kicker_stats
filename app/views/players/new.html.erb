@@ -1,15 +1,5 @@
-<h1>New player</h1>
+<%= title "Register" %>
 
-<% form_for(@player) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
-<% end %>
+<%= render :partial => "player_form" %>
 
 <%= link_to 'Back', players_path %>

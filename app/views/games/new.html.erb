@@ -5,11 +5,11 @@
 
   <p>
     <%= f.label :white_player_id %><br />
-    <%= f.select(:white_player_id, Player.all.collect {|p| [ p.name, p.id ] }) %>
+    <%= f.select(:white_player_id, Player.all.collect {|p| [ p.username, p.id ] }) %>
   </p>
   <p>
     <%= f.label :yellow_player_id %><br />
-    <%= f.select(:yellow_player_id, Player.all.collect {|p| [ p.name, p.id ] }) %>
+    <%= f.select(:yellow_player_id, Player.all.collect {|p| [ p.username, p.id ] }) %>
   </p>
   <p>
     <%= f.label :white_goals %><br />

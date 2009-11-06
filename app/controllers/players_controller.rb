@@ -34,7 +34,7 @@ class PlayersController < ApplicationController
 
   # GET /players/1/edit
   def edit
-    @player = Player.find(params[:id])
+    @player = current_player
   end
 
   # POST /players
@@ -44,8 +44,8 @@ class PlayersController < ApplicationController
 
     respond_to do |format|
       if @player.save
-        flash[:notice] = 'Player was successfully created.'
-        format.html { redirect_to(@player) }
+        flash[:notice] = 'Registration successfull.'
+        format.html { redirect_to(root_url) }
         format.xml  { render :xml => @player, :status => :created, :location => @player }
       else
         format.html { render :action => "new" }
@@ -57,11 +57,11 @@ class PlayersController < ApplicationController
   # PUT /players/1
   # PUT /players/1.xml
   def update
-    @player = Player.find(params[:id])
+    @player = current_player
 
     respond_to do |format|
       if @player.update_attributes(params[:player])
-        flash[:notice] = 'Player was successfully updated.'
+        flash[:notice] = 'Player profile was successfully updated.'
         format.html { redirect_to(@player) }
         format.xml  { head :ok }
       else
