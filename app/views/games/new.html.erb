@@ -1,31 +1,5 @@
 <h1>New game</h1>
 
-<% form_for(@game) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :white_player_id %><br />
-    <%= f.select(:white_player_id, Player.all.collect {|p| [ p.username, p.id ] }) %>
-  </p>
-  <p>
-    <%= f.label :yellow_player_id %><br />
-    <%= f.select(:yellow_player_id, Player.all.collect {|p| [ p.username, p.id ] }) %>
-  </p>
-  <p>
-    <%= f.label :white_goals %><br />
-    <%= f.select(:white_goals, (0..10).to_a) %>
-  </p>
-  <p>
-    <%= f.label :yellow_goals %><br />
-    <%= f.select(:yellow_goals, (0..10).to_a) %>
-  </p>
-  <p>
-    <%= f.label :goals_to_win %><br />
-    <%= f.select(:goals_to_win, Game::GOALS_TO_WIN) %>
-  </p>
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
-<% end %>
+<%= render :partial => "form" %>
 
 <%= link_to 'Back', games_path %>

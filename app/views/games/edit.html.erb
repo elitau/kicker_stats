@@ -1,32 +1,6 @@
 <h1>Editing game</h1>
 
-<% form_for(@game) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :white_player_id %><br />
-    <%= f.text_field :white_player_id %>
-  </p>
-  <p>
-    <%= f.label :yellow_player_id %><br />
-    <%= f.text_field :yellow_player_id %>
-  </p>
-  <p>
-    <%= f.label :white_goals %><br />
-    <%= f.text_field :white_goals %>
-  </p>
-  <p>
-    <%= f.label :yellow_goals %><br />
-    <%= f.text_field :yellow_goals %>
-  </p>
-  <p>
-    <%= f.label :goals_to_win %><br />
-    <%= f.text_field :goals_to_win %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
-<% end %>
+<%= render :partial => "form" %>
 
 <%= link_to 'Show', @game %> |
 <%= link_to 'Back', games_path %>
