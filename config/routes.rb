@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :matches
+
   map.resources :player_sessions
   map.resources :players
   map.resources :games
