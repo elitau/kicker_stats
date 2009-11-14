@@ -1,12 +1,18 @@
 class MatchesController < ApplicationController
+  acts_as_iphone_controller :test_mode => true
+  
   # GET /matches
   # GET /matches.xml
   def index
     @matches = Match.all
-
+    @games = Game.all
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @matches }
+      format.iphone do
+        @match = Match.new
+      end
     end
   end
 
@@ -14,7 +20,7 @@ class MatchesController < ApplicationController
   # GET /matches/1.xml
   def show
     @match = Match.find(params[:id])
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @match }
@@ -41,7 +47,7 @@ class MatchesController < ApplicationController
   # POST /matches.xml
   def create
     @match = Match.new(params[:match])
-
+    
     respond_to do |format|
       if @match.save
         flash[:notice] = 'Match was successfully created.'
@@ -51,6 +57,8 @@ class MatchesController < ApplicationController
         format.html { render :action => "new" }
         format.xml  { render :xml => @match.errors, :status => :unprocessable_entity }
       end
+      
+      format.iphone { @matches = Match.all; redirect_to :action => "index" }
     end
   end
 

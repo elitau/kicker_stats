@@ -11,6 +11,8 @@ class Match < ActiveRecord::Base
   belongs_to :yellow_player, :class_name => "Player", :foreign_key => "yellow_player_id"
   belongs_to :game
   
+  default_scope :order => 'created_at'
+  
   def winner
     if white_player and yellow_player
       if white_goals > yellow_goals
@@ -23,6 +25,5 @@ class Match < ActiveRecord::Base
       return nil
     end
   end
-  
   
 end

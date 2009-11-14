@@ -1,0 +1,28 @@
+<p>
+  <b>White player:</b>
+  <%=h @match.white_player.username %>
+</p>
+
+<p>
+  <b>Yellow player:</b>
+  <%=h @match.yellow_player.username %>
+</p>
+
+<p>
+  <b>White goals:</b>
+  <%=h @match.white_goals %>
+</p>
+
+<p>
+  <b>Yellow goals:</b>
+  <%=h @match.yellow_goals %>
+</p>
+
+<p>
+  <b>Goals to win:</b>
+  <%=h @match.goals_to_win %>
+</p>
+
+
+<%= link_to 'Edit', edit_match_path(@match) %> |
+<%= link_to 'Back', matches_path %>
