@@ -1,8 +1,8 @@
 <h1>Editing match</h1>
 
-<% form_for(@match) do |f| %>
+<% form_for([@game, @match]) do |f| %>
   <%= f.error_messages %>
-
+  <%= render :partial => "form", :locals => {:f => f} %>
   <p>
     <%= f.submit 'Update' %>
   </p>

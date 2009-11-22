@@ -1,5 +1,13 @@
 module MatchesHelper
   
+  
+  def show_winner(match, color)
+    if match.winner_team == match.send(:"#{color}_team")
+      image_tag("worldcup-icon-48.png", :height => 16, :width => 16)
+    end
+  end
+  
+  
   module ViewAttributes
     def caption
       yellow = "<span style=\"background-color: yellow\">#{yellow_team.usernames}</span>"
@@ -7,7 +15,6 @@ module MatchesHelper
       "#{yellow} vs. #{white_player.usernames}: #{yellow_goals} zu #{self.white_goals}"
     end
   end
-  
   
   def games_with_matches_list(games)
     te_grouped_list()

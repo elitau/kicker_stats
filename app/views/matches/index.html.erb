@@ -13,8 +13,8 @@
 <% @matches.each do |match| %>
   <tr>
     <td><%= match.id %></td>
-    <td><%= match.yellow_team.usernames %></td>
-    <td><%= match.white_team.usernames %></td>
+    <td><%= match.yellow_team.usernames %> <%= show_winner(match, :yellow) %></td>
+    <td><%= match.white_team.usernames %> <%= show_winner(match, :white) %></td>
     <td><%= link_to 'Show', match %></td>
     <td><%= link_to 'Edit', edit_match_path(match) %></td>
     <td><%= link_to 'Destroy', match, :confirm => 'Are you sure?', :method => :delete %></td>
@@ -24,4 +24,4 @@
 
 <br />
 
-<%= link_to 'New match', new_match_path %>
+<%= link_to 'New match', new_game_match_path(@game) %>

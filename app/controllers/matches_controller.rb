@@ -22,7 +22,7 @@ class MatchesController < ApplicationController
   # GET /matches/1.xml
   def show
     @match = Match.find(params[:id])
-    
+    @game = @match.game
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @match }
@@ -48,7 +48,7 @@ class MatchesController < ApplicationController
   # POST /matches
   # POST /matches.xml
   def create
-    @match = @game.matches.new(params[:match])
+    @match = @game.matches.build(params[:match])
     
     respond_to do |format|
       if @match.save
