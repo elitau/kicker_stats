@@ -5,7 +5,7 @@ class Player < ActiveRecord::Base
   validates_presence_of :username
 
   has_one :game
-  has_many :teams
+  has_and_belongs_to_many :teams
   
   def to_s
     username

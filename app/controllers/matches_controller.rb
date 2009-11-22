@@ -1,5 +1,5 @@
 class MatchesController < ApplicationController
-  acts_as_iphone_controller :test_mode => true
+  acts_as_iphone_controller #:test_mode => true
   
   # GET /matches
   # GET /matches.xml

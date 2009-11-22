@@ -2,10 +2,19 @@
 
 <table>
   <tr>
+    <th>ID</th>
+    <th>Yellow Team</th>
+    <th>White Team</th>
+    <th></th>
+    <th></th>
+    <th></th>
   </tr>
 
 <% @matches.each do |match| %>
   <tr>
+    <td><%= match.id %></td>
+    <td><%= match.yellow_team.usernames %></td>
+    <td><%= match.white_team.usernames %></td>
     <td><%= link_to 'Show', match %></td>
     <td><%= link_to 'Edit', edit_match_path(match) %></td>
     <td><%= link_to 'Destroy', match, :confirm => 'Are you sure?', :method => :delete %></td>

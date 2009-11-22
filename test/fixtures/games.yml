@@ -1,7 +1,7 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 four_players_game:
-
+  created_at: <%= Time.now.to_s :db %>
 
 two_players_game:
-
+  created_at: <%= Time.now.to_s :db %>

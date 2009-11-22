@@ -2,7 +2,7 @@ module MatchesHelper
   
   module ViewAttributes
     def caption
-      yellow = "<span style=\"background-color: yellow\">#{yellow_player.username}</span>"
+      yellow = "<span style=\"background-color: yellow\">#{yellow_team.usernames}</span>"
       yellow_goals = "<span style=\"background-color: yellow\">#{self.yellow_goals}</span>"
       "#{yellow} vs. #{white_player.username}: #{yellow_goals} zu #{self.white_goals}"
     end
