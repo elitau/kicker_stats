@@ -34,7 +34,8 @@ class PlayersController < ApplicationController
 
   # GET /players/1/edit
   def edit
-    @player = current_player
+    @player = Player.find(params[:id])
+    # @player = current_player
   end
 
   # POST /players
@@ -57,7 +58,8 @@ class PlayersController < ApplicationController
   # PUT /players/1
   # PUT /players/1.xml
   def update
-    @player = current_player
+    # @player = current_player
+    @player = Player.find(params[:id])
 
     respond_to do |format|
       if @player.update_attributes(params[:player])
