@@ -1,26 +1,26 @@
 <p>
-  <b>White player:</b>
-  <%=h @game.white_player_id %>
+  <b>White player(s):</b>
+  <%=h @game.white_team.usernames %>
 </p>
 
 <p>
-  <b>Yellow player:</b>
-  <%=h @game.yellow_player_id %>
+  <b>Yellow player(s):</b>
+  <%=h @game.yellow_team.usernames %>
 </p>
 
 <p>
   <b>White goals:</b>
-  <%=h @game.white_goals %>
+  <%#h @game.white_goals %>
 </p>
 
 <p>
   <b>Yellow goals:</b>
-  <%=h @game.yellow_goals %>
+  <%#h @game.yellow_goals %>
 </p>
 
 <p>
   <b>Goals to win:</b>
-  <%=h @game.goals_to_win %>
+  <%#h @game.goals_to_win %>
 </p>
 
 

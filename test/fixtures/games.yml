@@ -1,7 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 four_players_game:
-  created_at: <%= Time.now.to_s :db %>
-
+  white_team: ede_and_tim
+  yellow_team: fab_and_marzel
+  
 two_players_game:
-  created_at: <%= Time.now.to_s :db %>
+  white_team: ede
+  yellow_team: tim

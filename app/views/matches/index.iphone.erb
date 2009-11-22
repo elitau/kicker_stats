@@ -4,7 +4,7 @@
   <fieldset>
     <div class="row yellow">
       <label>Spieler</label>
-      <%= f.select(:yellow_player_id, Player.all.collect {|p| [ p.username, p.id ] }, {:selected => Player.last}) %>
+      <%= f.select(:yellow_team_id, Player.all.collect {|p| [ p.username, p.id ] }, {:selected => Player.last}) %>
     </div>
     <div class="row yellow">
       <%= f.label :yellow_goals, "Tore" %>
@@ -16,7 +16,7 @@
   <fieldset>
     <div class="row">
       <label>Spieler</label>
-      <%= f.select(:white_player_id, Player.all.collect {|p| [ p.username, p.id ] }) %>
+      <%= f.select(:white_team_id, Player.all.collect {|p| [ p.username, p.id ] }) %>
     </div>    
     <div class="row">
       <%= f.label :white_goals, "Tore" %>
@@ -36,6 +36,6 @@
 
 <!-- <ul id="lastGames" title="Last Games">
   <%- @matches.each do |match| -%>
-    <li><%= match.yellow_player.username %></li>
+    <li><%= match.yellow_team.username %></li>
   <%- end -%>
 </ul> -->
