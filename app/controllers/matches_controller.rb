@@ -1,10 +1,12 @@
 class MatchesController < ApplicationController
   acts_as_iphone_controller #:test_mode => true
   
+  before_filter :load_game, :except => :show
+  
   # GET /matches
   # GET /matches.xml
   def index
-    @matches = Match.all
+    @matches = @game.matches
     @games = Game.all
     
     respond_to do |format|
@@ -46,7 +48,7 @@ class MatchesController < ApplicationController
   # POST /matches
   # POST /matches.xml
   def create
-    @match = Match.new(params[:match])
+    @match = @game.matches.new(params[:match])
     
     respond_to do |format|
       if @match.save
@@ -65,7 +67,7 @@ class MatchesController < ApplicationController
   # PUT /matches/1
   # PUT /matches/1.xml
   def update
-    @match = Match.find(params[:id])
+    @match = @game.matches.find(params[:id])
 
     respond_to do |format|
       if @match.update_attributes(params[:match])
@@ -82,7 +84,7 @@ class MatchesController < ApplicationController
   # DELETE /matches/1
   # DELETE /matches/1.xml
   def destroy
-    @match = Match.find(params[:id])
+    @match = @game.matches.find(params[:id])
     @match.destroy
 
     respond_to do |format|
@@ -90,4 +92,10 @@ class MatchesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  private
+    def load_game
+      @game = Game.find(params[:game_id])
+    end
+    
 end
