@@ -1,7 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
+ede:
+  username: Ede
 
-two:
-  name: MyString
+tim:
+  username: Tim
+  
+fab:
+  username: Fabian
+
+marzel:
+  username: Marzel

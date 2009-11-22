@@ -1,7 +1,30 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-# one:
-#   column: value
-#
-# two:
-#   column: value
+four_players_game_first_match:
+  game: four_players_game
+  white_team: ede_and_tim
+  yellow_team: fab_and_marzel
+  white_goals: 6
+  yellow_goals: 2
+
+four_players_game_second_match:
+  game: four_players_game
+  white_team: ede_and_tim
+  yellow_team: fab_and_marzel
+  white_goals: 5
+  yellow_goals: 6
+
+four_players_game_third_match:
+  game: four_players_game
+  white_team: ede_and_tim
+  yellow_team: fab_and_marzel
+  white_goals: 6
+  yellow_goals: 0
+
+two_players_game_first_match:
+  game: two_players_game
+  white_team: ede
+  yellow_team: tim
+  white_goals: 6
+  yellow_goals: 2
+

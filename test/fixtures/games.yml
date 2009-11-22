@@ -1,15 +1,7 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  white_player_id: 1
-  yellow_player_id: 1
-  white_goals: 1
-  yellow_goals: 1
-  goals_to_win: 1
+four_players_game:
 
-two:
-  white_player_id: 1
-  yellow_player_id: 1
-  white_goals: 1
-  yellow_goals: 1
-  goals_to_win: 1
+
+two_players_game:
+
