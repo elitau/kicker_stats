@@ -6,7 +6,7 @@
     <br />
     <%= select_tag("white_player_ids[]", player_options = options_for_select(Player.all.collect {|p| [ p.username, p.id ] })) %>
     <br />
-    <%= select_tag("white_player_ids[]", player_options) %>
+    <!--<%= select_tag("white_player_ids[]", player_options) %> -->
   </p>
   <p>
     Yellow Players<br/>

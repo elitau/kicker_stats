@@ -32,23 +32,10 @@ class Team < ActiveRecord::Base
       when 2
         all_teams[0] & all_teams[1]
       when 1
-        # wenn nur eine id übergeben wurde, könnte der user in mehreren
-        # teams sein. wir nehmen das team, das nur einen user enthält
-        if (teams = all_teams[0]).size > 1
-          teams.select{ |team| team.players.count == 1}
-        else
-          # wenn der user in keinem oder mehreren teams ist, muss ein neues
-          # team mit NUR diesem user angelegt werden
-          if !teams.empty? and teams.first.players.count > 1
-            []
-          else
-            teams
-          end
-        end
+        all_teams[0].select{ |team| team.single?(team) }      
       else
         []
     end
-    
     return players_team.first
   end
   
@@ -61,6 +48,14 @@ class Team < ActiveRecord::Base
       team.players = players
       team.save
       return team
+    end
+  end
+  
+  def single?(team)
+    if team.players.count == 1
+      return true
+    else
+      return false
     end
   end
   
