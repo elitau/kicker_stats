@@ -11,3 +11,6 @@ fab:
 
 marzel:
   username: Marzel
+
+player_without_team:
+  username: PlayerWithoutTeam

@@ -2,12 +2,17 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :white_team_id %><br />
-    <%= f.select(:white_team_id, Player.all.collect {|p| [ p.username, p.id ] }) %>
+    White Players
+    <br />
+    <%= select_tag("white_player_ids[]", player_options = options_for_select(Player.all.collect {|p| [ p.username, p.id ] })) %>
+    <br />
+    <%= select_tag("white_player_ids[]", player_options) %>
   </p>
   <p>
-    <%= f.label :yellow_team_id %><br />
-    <%= f.select(:yellow_team_id, Player.all.collect {|p| [ p.username, p.id ] }) %>
+    Yellow Players<br/>
+    <%= select_tag("yellow_player_ids[]", player_options) %>
+    <br />
+    <%= select_tag("yellow_player_ids[]", player_options) %>
   </p>
   <p>
     <%= f.submit 'Create' %>

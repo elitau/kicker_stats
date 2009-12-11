@@ -4,10 +4,10 @@ class Player < ActiveRecord::Base
   validates_uniqueness_of :username
   validates_presence_of :username
 
-  has_one :game
   has_and_belongs_to_many :teams
   
   def to_s
     username
   end
+  
 end

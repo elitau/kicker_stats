@@ -1,7 +1,7 @@
 class MatchesController < ApplicationController
   acts_as_iphone_controller #:test_mode => true
   
-  before_filter :load_game, :except => :show
+  before_filter :load_match
   
   # GET /matches
   # GET /matches.xml
@@ -21,8 +21,8 @@ class MatchesController < ApplicationController
   # GET /matches/1
   # GET /matches/1.xml
   def show
-    @match = Match.find(params[:id])
-    @game = @match.game
+    # @match = Match.find(params[:id])
+    # @game = @match.game
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @match }
@@ -67,7 +67,7 @@ class MatchesController < ApplicationController
   # PUT /matches/1
   # PUT /matches/1.xml
   def update
-    @match = @game.matches.find(params[:id])
+    # @match = @game.matches.find(params[:id])
 
     respond_to do |format|
       if @match.update_attributes(params[:match])
@@ -84,7 +84,6 @@ class MatchesController < ApplicationController
   # DELETE /matches/1
   # DELETE /matches/1.xml
   def destroy
-    @match = @game.matches.find(params[:id])
     @match.destroy
 
     respond_to do |format|
@@ -94,8 +93,13 @@ class MatchesController < ApplicationController
   end
   
   private
-    def load_game
-      @game = Game.find(params[:game_id])
+    def load_match
+      if params[:game_id]
+        @game = Game.find(params[:game_id])
+        @match = @game.find(params[:id]) if params[:id]
+      else
+        @match = Match.find(params[:id]) if params[:id]
+      end
     end
     
 end

@@ -46,7 +46,7 @@ class PlayersController < ApplicationController
     respond_to do |format|
       if @player.save
         flash[:notice] = 'Registration successfull.'
-        format.html { redirect_to(root_url) }
+        format.html { redirect_to(@player) } #{ redirect_to(root_url) }
         format.xml  { render :xml => @player, :status => :created, :location => @player }
       else
         format.html { render :action => "new" }

@@ -1,12 +1,12 @@
 Ein Match muss noch die zegehörigkeit zu einem team über die farbe herstellen. also ein has_many though color
 <p>
-  <%= f.label :white_goals, "#{@game.white_team.usernames} goals:" %><br />
+  <%= f.label :white_goals, "@game.white_team.usernames goals:" %><br />
   <%= f.select(:white_goals, (1..10).collect {|p| [ p, p ] }) %>  <br />
   <%= f.label :color %><br />
   <%= f.select(:white_goals, %w(yellow white).collect {|p| [ p, p ] }) %>
 </p>
 <p>
-  <%= f.label :yellow_goals, "#{@game.yellow_team.usernames} goals:" %><br />
+  <%= f.label :yellow_goals, "@game.yellow_team.usernames goals:" %><br />
   <%= f.select(:yellow_goals, (1..10).collect {|p| [ p, p ] }) %>
   <%= f.label :color %><br />
   <%= f.select(:white_goals, %w(yellow white).collect {|p| [ p, p ] }) %>

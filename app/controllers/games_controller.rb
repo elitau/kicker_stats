@@ -45,7 +45,7 @@ class GamesController < ApplicationController
   # POST /games
   # POST /games.xml
   def create
-    @game = Game.new(params[:game])
+    @game = Game.create_with_teams(params[:white_player_ids], params[:yellow_player_ids])
 
     respond_to do |format|
       if @game.save

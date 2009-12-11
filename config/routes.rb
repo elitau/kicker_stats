@@ -1,5 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :matches, :has_one => :yellow_team, :has_one => :white_team, :belongs_to => :game
+  map.resources :matches, 
+    :has_one => :yellow_team, 
+    :has_one => :white_team, 
+    :belongs_to => :game, 
+    :shallow => true
   map.resources :player_sessions
   map.resources :players
   map.resources :games, :has_many => :matches, :shallow => true
