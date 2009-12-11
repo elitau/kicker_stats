@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class GamesControllerTest < ActionController::TestCase
+  
   test "should get index" do
     get :index
     assert_response :success
@@ -14,10 +15,9 @@ class GamesControllerTest < ActionController::TestCase
 
   test "should create game" do
     assert_difference('Game.count') do
-      post :create, :game => {
-        "white_player_ids"=>[ede.id, fab.id], 
-        "yellow_player_ids"=>["730190997", "1696912602"]
-      }
+      post :create,
+        "white_player_ids"  => [players(:ede).id, players(:fab).id], 
+        "yellow_player_ids" => [players(:marzel).id, players(:tim).id]
     end
 
     assert_redirected_to game_path(assigns(:game))
