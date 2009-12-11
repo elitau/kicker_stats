@@ -10,8 +10,8 @@
 
 <% @games.each do |game| %>
   <tr>
-    <td><%=h game.white_team.usernames if game.matches.first %></td>
-    <td><%=h game.yellow_team.usernames if game.matches.first %></td>
+    <td><%=h game.matches.first ? game.white_team.usernames : "Keine Matches bisher" %></td>
+    <td><%=h game.matches.first ? game.yellow_team.usernames : "Keine Matches bisher" %></td>
     <td><%=h((w = game.winner) ? w.usernames : "Nobody") %></td>
     <td><%= link_to 'Show', game_matches_path(game) %></td>
   </tr>

@@ -4,6 +4,10 @@ class Game < ActiveRecord::Base
   
   has_many :matches, :dependent => :destroy
   
+  # TODO: Das hier ist falsch: Ein Spiel sollte ein team haben, das mal weiss mal
+  # gelb ist. die farbe ändert sich ja pro match nicht pro spiel. also
+  # vielleicht farbe dahin schieben oder die farbe als assoziation zw. team und match legen. z.B. has
+  # many through
   belongs_to :white_team,  :class_name => "Team", :foreign_key => "white_team_id"
   belongs_to :yellow_team, :class_name => "Team", :foreign_key => "yellow_team_id"
   
