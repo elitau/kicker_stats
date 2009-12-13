@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class TeamTest < ActiveSupport::TestCase
-# TODO müsste man mal noch dry machen, d.h. wenn man das bei Tests macht
 
   # Für diese Daten gibt es noch kein Team, 
   # beide Player haben aber ein anderes Team 
