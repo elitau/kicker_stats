@@ -32,7 +32,7 @@ class Team < ActiveRecord::Base
       when 2
         all_teams[0] & all_teams[1]
       when 1
-        all_teams[0].select{ |team| team.single?(team) }      
+        all_teams[0].select{ |team| team.single? }      
       else
         []
     end
@@ -51,8 +51,8 @@ class Team < ActiveRecord::Base
     end
   end
   
-  def single?(team)
-    if team.players.count == 1
+  def single?
+    if self.players.count == 1
       return true
     else
       return false
