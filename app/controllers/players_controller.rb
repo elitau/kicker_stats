@@ -10,17 +10,6 @@ class PlayersController < ApplicationController
     end
   end
 
-  # GET /players/1
-  # GET /players/1.xml
-  def show
-    @player = Player.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @player }
-    end
-  end
-
   # GET /players/new
   # GET /players/new.xml
   def new
@@ -32,10 +21,20 @@ class PlayersController < ApplicationController
     end
   end
 
+  # GET /players/1
+  # GET /players/1.xml
+  def show
+    @player = Player.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @player }
+    end
+  end
+
   # GET /players/1/edit
   def edit
     @player = Player.find(params[:id])
-    # @player = current_player
   end
 
   # POST /players

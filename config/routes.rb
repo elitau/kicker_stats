@@ -1,10 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :matches, :has_many => :players,
-    :belongs_to => :game, 
-    :shallow => true
+  map.resources :matches, :has_many => :players, :belongs_to => :game
   map.resources :player_sessions
   map.resources :players, :has_many => :matches
-  map.resources :games, :has_many => :matches, :shallow => true
+  map.resources :games, :has_many => :matches
 
   map.login "login", :controller => "player_sessions", :action => "new"
   map.logout "logout", :controller => "player_sessions", :action => "destroy"

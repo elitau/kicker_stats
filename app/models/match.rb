@@ -6,7 +6,7 @@ class Match < ActiveRecord::Base
   GOALS_TO_WIN = [6,10]
   
   belongs_to :game
-  has_many :teams
+  has_many :teams, :dependent => :destroy
   has_many :players, :through => :teams
   
   default_scope :order => 'created_at'
