@@ -4,17 +4,31 @@
   <p>
     White Players
     <br />
-    <%= select_tag("white_player_ids[]", player_options = options_for_select(Player.all.collect {|p| [ p.username, p.id ] })) %>
+    <%= select_tag("white_player_ids[]",
+        player_options = options_for_select(Player.all.collect {|p| [ p.username, p.id ] })) %>
     <br />
-    <!--<%= select_tag("white_player_ids[]", player_options) %> -->
+    <%= select_tag("white_player_ids[]", player_options, :disabled => true, :id => "second_white_select" ) %>
+    <%= check_box_tag "enable_second_player", "1", false, :id => "enable_second_white_player",
+                      :onchange => 'activate_second_player_on_white_team(this)'%>Activate second player
   </p>
   <p>
     Yellow Players<br/>
     <%= select_tag("yellow_player_ids[]", player_options) %>
     <br />
-    <%= select_tag("yellow_player_ids[]", player_options) %>
+    <%= select_tag("yellow_player_ids[]", player_options, :disabled => true, :id => "second_yellow_select" ) %>
+    <%= check_box_tag "enable_second_player", "1", false, :id => "enable_second_yellow_player",
+                      :onchange => 'activate_second_player_on_yellow_team(this)'%>Activate second player
   </p>
   <p>
     <%= f.submit 'Create' %>
   </p>
+
+  <script language = "javascript">
+    function activate_second_player_on_white_team(element){
+        element.form.second_white_select.disabled = !element.checked;
+    }
+    function activate_second_player_on_yellow_team(element){
+        element.form.second_yellow_select.disabled = !element.checked;
+    }
+  </script>
 <% end %>
