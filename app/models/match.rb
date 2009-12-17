@@ -6,8 +6,8 @@ class Match < ActiveRecord::Base
   GOALS_TO_WIN = [6,10]
   
   belongs_to :game
-  # has_one :yellow_team, :class_name => "Team", :foreign_key => "yellow_team_id"
-  # has_one :white_team, :class_name => "Team", :foreign_key => "white_team_id"
+  has_many :teams
+  has_many :players, :through => :teams
   
   default_scope :order => 'created_at'
   

@@ -1,12 +1,7 @@
 class Team < ActiveRecord::Base
-
-  # has_many :players, :through => :player_team
-  # has_many :player_team, :class_name => "player_team"
-
-  validates_presence_of :name
   
-  has_and_belongs_to_many :players
-  has_many :games
+  belongs_to :player
+  belongs_to :match
   
   named_scope :player_teams, lambda { |player_id|
    { :joins => :players, :conditions => ["player_id = ?", player_id] }
