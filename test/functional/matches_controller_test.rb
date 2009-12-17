@@ -37,7 +37,7 @@ class MatchesControllerTest < ActionController::TestCase
 
   test "should destroy match" do
     assert_difference('Match.count', -1) do
-      delete :destroy, :id => matches(:four_players_game_third_match).to_param
+      delete :destroy, :id => matches(:four_players_game_second_match).to_param
     end
 
     assert_redirected_to matches_path

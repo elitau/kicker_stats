@@ -6,9 +6,12 @@ class MatchesController < ApplicationController
   # GET /matches
   # GET /matches.xml
   def index
-    @matches = @game.matches
-    @games = Game.all
-    
+    if @game
+      @matches = @game.matches
+    else
+      @matches = Match.find(:all)
+    end
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @matches }
@@ -21,8 +24,7 @@ class MatchesController < ApplicationController
   # GET /matches/1
   # GET /matches/1.xml
   def show
-    # @match = Match.find(params[:id])
-    # @game = @match.game
+    @match = Match.find(params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @match }

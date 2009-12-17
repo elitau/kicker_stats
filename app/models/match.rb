@@ -11,28 +11,14 @@ class Match < ActiveRecord::Base
   
   default_scope :order => 'created_at'
   
-  def yellow_team
-    # super or game.first_team
-    game.yellow_team
-  end
-  
-  def white_team
-    # super or game.second_team
-    game.white_team
-  end
-  
-  def winner
-    if white_team and yellow_team
-      if white_goals > yellow_goals
-        return white_team
-      else
-        return yellow_team
-      end
-    else
-      puts "uh oh"
-      return nil
+
+  def team_player_names( winner_color )
+    names = []
+    @teams = Team.find(:all, :conditions => ["match_id=? AND team_color=?", self.id, winner_color])
+    @teams.each do |team|
+      names += [team.player.username]
     end
+    return names.join(" und ")
   end
-  alias_method :winner_team, :winner
   
 end

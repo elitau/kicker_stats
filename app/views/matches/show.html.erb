@@ -1,14 +1,4 @@
 <p>
-  <b>White player(s):</b>
-  <%=h @match.white_team.usernames %>
-</p>
-
-<p>
-  <b>Yellow player(s):</b>
-  <%=h @match.yellow_team.usernames %>
-</p>
-
-<p>
   <b>White goals:</b>
   <%=h @match.white_goals %>
 </p>
@@ -25,4 +15,4 @@
 
 
 <%= link_to 'Edit', edit_match_path(@match) %> |
-<%= link_to 'Back', game_matches_path(@game) %>
+<%= link_to 'Back', game_matches_path(@match.game) %>

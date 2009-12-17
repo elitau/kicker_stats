@@ -2,18 +2,22 @@
 
 <table class="full">
   <tr>
-    <th>White player</th>
-    <th>Yellow player</th>
+    <th>ID</th>
+    <th>Game Typ (Best of))</th>
     <th>Winner</th>
+    <th></th>
+    <th></th>
     <th></th>
   </tr>
 
 <% @games.each do |game| %>
   <tr>
-    <td><%=h game.matches.first ? game.white_team.usernames : "Keine Matches bisher" %></td>
-    <td><%=h game.matches.first ? game.yellow_team.usernames : "Keine Matches bisher" %></td>
-    <td><%=h((w = game.winner) ? w.usernames : "Nobody") %></td>
+    <td><%=h game.id %></td>
+    <td><%=h game.best_of %></td>
+    <td><%=h game.winner() %></td>
     <td><%= link_to 'Show', game_matches_path(game) %></td>
+    <td><%= link_to 'Edit', edit_game_path(game) %></td>
+    <td><%= link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

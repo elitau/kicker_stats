@@ -3,9 +3,10 @@
 <table>
   <tr>
     <th>ID</th>
-    <th>Yellow Team</th>
-    <th>White Team</th>
-    <th></th>
+    <th>Game ID</th>
+    <th>Match Winner</th>
+    <th>White Goals</th>
+    <th>Yellow Goals</th>
     <th></th>
     <th></th>
   </tr>
@@ -13,15 +14,16 @@
 <% @matches.each do |match| %>
   <tr>
     <td><%= match.id %></td>
-    <td><%= match.yellow_team.usernames %> <%= show_winner(match, :yellow) %></td>
-    <td><%= match.white_team.usernames %> <%= show_winner(match, :white) %></td>
+    <td><%= match.game_id %></td>
+    <td><%= match.match_winner %></td>
+    <td><%= match.white_goals %></td>
+    <td><%= match.yellow_goals %></td>
     <td><%= link_to 'Show', match %></td>
     <td><%= link_to 'Edit', edit_match_path(match) %></td>
-    <td><%= link_to 'Destroy', match, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New match', new_game_match_path(@game) %>
+<%= link_to 'Back', games_path %>

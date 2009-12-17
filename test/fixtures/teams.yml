@@ -54,7 +54,7 @@ ede_second_game_first_match:
   team_number: 3
   team_color: white
 
-tim_first_game_first_match:
+tim_second_game_first_match:
   player: tim
   match: two_players_game_first_match
   team_number: 4

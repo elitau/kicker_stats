@@ -16,8 +16,7 @@ class GamesControllerTest < ActionController::TestCase
   test "should create game" do
     assert_difference('Game.count') do
       post :create,
-        "white_player_ids"  => [players(:ede).id, players(:fab).id], 
-        "yellow_player_ids" => [players(:marzel).id, players(:tim).id]
+        "best_of"  => 1
     end
 
     assert_redirected_to game_path(assigns(:game))
