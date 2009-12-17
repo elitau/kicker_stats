@@ -11,8 +11,6 @@ class Team < ActiveRecord::Base
     players.collect(&:username).join(', ')
   end
   
-  # Die folgende Methode funktioniert nur mit maximalen 2 playern pro team
-  # Und scheint irgendwie zu kompliziert gelöst :(
   def self.find_team_for_player_ids(player_ids)
     # player_ids könnte nils enthalten
     player_ids.compact!

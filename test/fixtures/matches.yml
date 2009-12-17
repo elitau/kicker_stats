@@ -4,19 +4,17 @@ four_players_game_first_match:
   game: four_players_game
   white_goals: 6
   yellow_goals: 2
+  match_winner: white
 
 four_players_game_second_match:
   game: four_players_game
   white_goals: 5
   yellow_goals: 6
-
-four_players_game_third_match:
-  game: four_players_game
-  white_goals: 6
-  yellow_goals: 0
+  match_winner: yellow
 
 two_players_game_first_match:
   game: two_players_game
-  white_goals: 6
-  yellow_goals: 2
+  white_goals: 3
+  yellow_goals: 6
+  match_winner: yellow
 

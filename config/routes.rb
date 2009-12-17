@@ -1,11 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :matches, 
-    :has_one => :yellow_team, 
-    :has_one => :white_team, 
+  map.resources :matches, :has_many => :players,
     :belongs_to => :game, 
     :shallow => true
   map.resources :player_sessions
-  map.resources :players
+  map.resources :players, :has_many => :matches
   map.resources :games, :has_many => :matches, :shallow => true
 
   map.login "login", :controller => "player_sessions", :action => "new"
@@ -47,7 +45,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  map.root :controller => "games"
+  map.root :controller => "matches"
 
   # See how all your routes lay out with "rake routes"
 

@@ -1,13 +1,62 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-ede_and_tim:
-  players: ede, tim
+ede_first_game_first_match:
+  player: ede
+  matches: four_players_game_first_match
+  team_number: 1
+  team_color: white
 
-fab_and_marzel:
-  players: fab, marzel
+tim_first_game_first_match:
+  player: tim
+  matches: four_players_game_first_match
+  team_number: 1
+  team_color: white
 
-ede:
-  players: ede
+fabian_first_game_first_match:
+  player: fabian
+  matches: four_players_game_first_match
+  team_number: 2
+  team_color: yellow
 
-tim:
-  players: tim
+marzel_first_game_first_match:
+  player: marzel
+  matches: four_players_game_first_match
+  team_number: 2
+  team_color: yellow
+
+ede_first_game_second_match:
+  player: ede
+  matches: four_players_game_second_match
+  team_number: 1
+  team_color: yellow
+
+tim_first_game_second_match:
+  player: tim
+  matches: four_players_game_second_match
+  team_number: 1
+  team_color: yellow
+
+fabian_first_game_second_match:
+  player: fabian
+  matches: four_players_game_second_match
+  team_number: 2
+  team_color: white
+
+marzel_first_game_second_match:
+  player: marzel
+  matches: four_players_game_second_match
+  team_number: 2
+  team_color: white
+
+ede_second_game_first_match:
+  player: ede
+  matches: two_players_game_first_match
+  team_number: 3
+  team_color: white
+
+tim_first_game_first_match:
+  player: tim
+  matches: two_players_game_first_match
+  team_number: 4
+  team_color: yellow
+
