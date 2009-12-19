@@ -13,10 +13,10 @@
 
 <% @matches.each do |@match| %>
   <tr>
-    <td><%= @match.team_player_names_by_color( "white" ) %></td>
+    <td><%= @match.team_player_names_and_ids_by_color( "white" ).first %></td>
     <td><%= @match.white_goals %></td>
     <td><%= @match.yellow_goals %></td>
-    <td><%= @match.team_player_names_by_color( "yellow" ) %></td>
+    <td><%= @match.team_player_names_and_ids_by_color( "yellow" ).first %></td>
     <td><%= @match.match_winner %></td>
     <td><%= link_to 'Show', @match %></td>
     <td><%= link_to 'Edit', edit_match_path(@match) %></td>

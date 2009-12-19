@@ -14,7 +14,7 @@
   <tr>
     <td><%= link_to game.id, game_matches_path(game) %></td>
     <td><%=h game.best_of %></td>
-    <td><%=h game.winner() %></td>
+    <td><%=h game.winner_names %></td>
     <td><%= link_to 'Edit', edit_game_path(game) %></td>
     <td><%= link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

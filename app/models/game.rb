@@ -9,23 +9,33 @@ class Game < ActiveRecord::Base
     return game
   end
 
-  def winner
+  def winner_names
+    winner_names = get_winner.first
+  end
+
+  def winner_ids
+    winner_ids = get_winner[1]
+  end
+
+  private
+
+  def get_winner
     @matches = self.matches
-    winner_names = case self.best_of
+
+    case self.best_of
       when 1
         @match = @matches.first
         winner_color = @match.match_winner
-        @match.team_player_names_by_color(winner_color)
+        @match.team_player_names_and_ids_by_color(winner_color)
       when 3
         if @matches[0].match_winner != @matches[1].match_winner
-          @matches[0].team_player_names_by_color(@matches[0].match_winner)
+          @matches[0].team_player_names_and_ids_by_color(@matches[0].match_winner)
         else
-          @matches[2].team_player_names_by_color(@matches[2].match_winner)
+          @matches[2].team_player_names_and_ids_by_color(@matches[2].match_winner)
         end
       else
         puts "The use of more than 3 matches is not implemented"
     end
-    return winner_names
   end
-  
+
 end

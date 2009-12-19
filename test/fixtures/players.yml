@@ -2,15 +2,24 @@
 
 ede:
   username: Ede
+  firstname: Eduard
+  lastname: Litau
 
 tim:
   username: Tim
-  
+  firstname: Tim
+  lastname: Haussmann
+
 fab:
   username: Fabian
+  firstname: Fabian
+  lastname: Jaehnke
 
 marzel:
   username: Marzel
+  firstname: Marcel
+  lastname: Pillen
 
 player_without_team:
   username: PlayerWithoutTeam
+  
