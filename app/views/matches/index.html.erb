@@ -2,24 +2,24 @@
 
 <table>
   <tr>
-    <th>ID</th>
-    <th>Game ID</th>
-    <th>Match Winner</th>
+    <th>White Team</th>
     <th>White Goals</th>
     <th>Yellow Goals</th>
+    <th>Yellow Team</th>
+    <th>Match Winner</th>
     <th></th>
     <th></th>
   </tr>
 
-<% @matches.each do |match| %>
+<% @matches.each do |@match| %>
   <tr>
-    <td><%= match.id %></td>
-    <td><%= match.game_id %></td>
-    <td><%= match.match_winner %></td>
-    <td><%= match.white_goals %></td>
-    <td><%= match.yellow_goals %></td>
-    <td><%= link_to 'Show', match %></td>
-    <td><%= link_to 'Edit', edit_match_path(match) %></td>
+    <td><%= @match.team_player_names_by_color( "white" ) %></td>
+    <td><%= @match.white_goals %></td>
+    <td><%= @match.yellow_goals %></td>
+    <td><%= @match.team_player_names_by_color( "yellow" ) %></td>
+    <td><%= @match.match_winner %></td>
+    <td><%= link_to 'Show', @match %></td>
+    <td><%= link_to 'Edit', edit_match_path(@match) %></td>
   </tr>
 <% end %>
 </table>

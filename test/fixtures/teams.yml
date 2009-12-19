@@ -13,7 +13,7 @@ tim_first_game_first_match:
   team_color: white
 
 fabian_first_game_first_match:
-  player: fabian
+  player: fab
   match: four_players_game_first_match
   team_number: 2
   team_color: yellow
@@ -37,7 +37,7 @@ tim_first_game_second_match:
   team_color: yellow
 
 fabian_first_game_second_match:
-  player: fabian
+  player: fab
   match: four_players_game_second_match
   team_number: 2
   team_color: white

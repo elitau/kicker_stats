@@ -15,12 +15,12 @@ class Game < ActiveRecord::Base
       when 1
         @match = @matches.first
         winner_color = @match.match_winner
-        @match.team_player_names(winner_color)
+        @match.team_player_names_by_color(winner_color)
       when 3
         if @matches[0].match_winner != @matches[1].match_winner
-          @matches[0].team_player_names(@matches[0].match_winner)
+          @matches[0].team_player_names_by_color(@matches[0].match_winner)
         else
-          @matches[2].team_player_names(@matches[2].match_winner)
+          @matches[2].team_player_names_by_color(@matches[2].match_winner)
         end
       else
         puts "The use of more than 3 matches is not implemented"

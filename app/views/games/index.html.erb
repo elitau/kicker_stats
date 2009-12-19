@@ -3,7 +3,7 @@
 <table class="full">
   <tr>
     <th>ID</th>
-    <th>Game Typ (Best of))</th>
+    <th>Best of</th>
     <th>Winner</th>
     <th></th>
     <th></th>
@@ -12,10 +12,9 @@
 
 <% @games.each do |game| %>
   <tr>
-    <td><%=h game.id %></td>
+    <td><%= link_to game.id, game_matches_path(game) %></td>
     <td><%=h game.best_of %></td>
     <td><%=h game.winner() %></td>
-    <td><%= link_to 'Show', game_matches_path(game) %></td>
     <td><%= link_to 'Edit', edit_game_path(game) %></td>
     <td><%= link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

@@ -9,7 +9,7 @@ class MatchesController < ApplicationController
     if @game
       @matches = @game.matches
     else
-      @matches = Match.find(:all)
+      @matches = Match.all
     end
 
     respond_to do |format|
