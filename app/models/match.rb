@@ -22,6 +22,7 @@ class Match < ActiveRecord::Base
         names_or_ids += [team.player.id]
       end
     end
+    names_or_ids = names_or_ids.join(" und ") if mode.eql?("names")
     return names_or_ids
   end
 

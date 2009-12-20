@@ -10,11 +10,11 @@ class Game < ActiveRecord::Base
   end
 
   def winner_names
-    winner_names = get_winner("names").join(" und ")
+    get_winner("names")
   end
 
   def winner_ids
-    winner_ids = get_winner("ids")
+    get_winner("ids")
   end
 
   private
