@@ -12,14 +12,17 @@ class Match < ActiveRecord::Base
   default_scope :order => 'created_at'
   
 
-  def team_player_names_and_ids_by_color( color )
-    names = ids = []
+  def team_player_names_or_ids_by_color( color, mode )
+    names_or_ids = []
     @teams = Team.all(:conditions => ["match_id=? AND team_color=?", self.id, color])
     @teams.each do |team|
-      names += [team.player.username]
-      ids += [team.player.id]
+      if mode.eql?("names")
+        names_or_ids += [team.player.username]
+      elsif mode.eql?("ids")
+        names_or_ids += [team.player.id]
+      end
     end
-    return [names.join(" und "), ids]
+    return names_or_ids
   end
-  
+
 end
