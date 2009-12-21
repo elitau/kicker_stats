@@ -2,23 +2,63 @@
   <%= f.error_messages %>
 
   <p>
-    White Players
-    <br />
-    <%= select_tag("white_player_ids[]",
-        player_options = options_for_select(Player.all.collect {|p| [ p.username, p.id ] })) %>
-    <br />
-    <%= select_tag("white_player_ids[]", player_options, :disabled => true, :id => "second_white_select" ) %>
-    <%= check_box_tag "enable_second_player", "1", false, :id => "enable_second_white_player",
-                      :onchange => 'activate_second_player_on_white_team(this)'%>Activate second player
+    <%= f.radio_button :best_of, 1, :checked => true%>1
+    <%= f.radio_button :best_of, 3 %>3
   </p>
-  <p>
-    Yellow Players<br/>
-    <%= select_tag("yellow_player_ids[]", player_options) %>
-    <br />
-    <%= select_tag("yellow_player_ids[]", player_options, :disabled => true, :id => "second_yellow_select" ) %>
-    <%= check_box_tag "enable_second_player", "1", false, :id => "enable_second_yellow_player",
-                      :onchange => 'activate_second_player_on_yellow_team(this)'%>Activate second player
-  </p>
+
+  <table class="full">
+    <tr>
+      <th>White Players</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>Yellow Players</th>
+    </tr>
+
+    <tr>
+      <td>
+        <%= select_tag("white_player_ids[]",
+          player_options = options_for_select(Player.all.collect {|p| [ p.username, p.id ] })) %>
+      </td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+        <%= select_tag("yellow_player_ids[]", player_options) %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <%= check_box_tag "enable_second_player", "1", false, :id => "enable_second_white_player",
+                      :onchange => 'activate_second_player_on_white_team(this)'%> second player
+      </td>
+      <td>
+        <%= select_with_integer_options("white_goals", 0, 6) %>
+      </td>
+      <td> : </td>
+      <td>
+        <%= select_with_integer_options("yellow_goals", 0, 6) %>
+      </td>
+      <td>
+        <%= check_box_tag "enable_second_player", "1", false, :id => "enable_second_yellow_player",
+                      :onchange => 'activate_second_player_on_yellow_team(this)'%> second player
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <%= select_tag("white_player_ids[]", player_options, :disabled => true, :id => "second_white_select" ) %>
+      </td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+        <%= select_tag("yellow_player_ids[]", player_options, :disabled => true, :id => "second_yellow_select" ) %>
+      </td>
+    </tr>
+  </table>
+
   <p>
     <%= f.submit 'Create' %>
   </p>

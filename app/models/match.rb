@@ -11,6 +11,28 @@ class Match < ActiveRecord::Base
   
   default_scope :order => 'created_at'
   
+  def self.create_match(game_id, white_goals, yellow_goals)
+    match_winner = calculate_match_winner(white_goals, yellow_goals)
+    match = Match.create(:game_id => game_id,
+                         :white_goals => white_goals,
+                         :yellow_goals => yellow_goals,
+                         :match_winner => match_winner )
+    return match
+  end
+
+  def self.calculate_match_winner(white_goals, yellow_goals)
+     case white_goals<yellow_goals
+       when true
+         "yellow"
+       when false
+         "white"
+     end
+  end
+
+  def find_or_create_teams(white_player_ids, yellow_player_ids)
+    Team.create_team(white_player_ids, self.id, "white")
+    Team.create_team(yellow_player_ids, self.id, "yellow")
+  end
 
   def team_player_names_or_ids_by_color( color, mode )
     names_or_ids = []

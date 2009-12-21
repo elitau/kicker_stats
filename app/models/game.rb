@@ -4,8 +4,13 @@ class Game < ActiveRecord::Base
 
   has_many :matches, :dependent => :destroy
   
-  def self.create_game(best_of)
-    game = Game.create(:best_of => best_of)
+  def self.create_game_with_matches_and_teams(params)
+    game = Game.create(:best_of => params[:game][:best_of])
+    match = Match.create_match(game.id,
+                       params[:white_goals],
+                       params[:yellow_goals])
+    match.find_or_create_teams(params[:white_player_ids],
+                               params[:yellow_player_ids])
     return game
   end
 

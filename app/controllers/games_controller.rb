@@ -45,12 +45,11 @@ class GamesController < ApplicationController
   # POST /games
   # POST /games.xml
   def create
-    @game = Game.create_game(params[:best_of])
-
+    @game = Game.create_game_with_matches_and_teams(params)
     respond_to do |format|
       if @game.save
         flash[:notice] = 'Game was successfully created.'
-        format.html { redirect_to(@game) }
+        format.html { redirect_to(games_path) }
         format.xml  { render :xml => @game, :status => :created, :location => @game }
       else
         format.html { render :action => "new" }
