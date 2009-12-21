@@ -20,13 +20,6 @@ class Team < ActiveRecord::Base
                   :team_number => team_number)
     end
   end
-
-  def self.get_team_numbers_for_teams(teams)
-    team_numbers = teams.collect do |team|
-      team.team_number
-    end
-    return team_numbers
-  end
   
   def self.find_team_number_for_player_ids(player_ids)
     # player_ids könnte nils enthalten
@@ -50,11 +43,20 @@ class Team < ActiveRecord::Base
     end
     return players_team.first unless players_team.first.nil?
   end
+
+  def self.get_team_numbers_for_teams(teams)
+    team_numbers = teams.collect do |team|
+      team.team_number
+    end
+    return team_numbers
+  end
   
   def self.single?(team_number)
     if Team.all(:conditions => ["team_number = ?", team_number],
-             :select => ["DISTINCT(player_id)", "team_number"]).size == 1
+             :select => "DISTINCT(player_id)").size == 1
       return true
+    else
+      return false
     end
   end
   

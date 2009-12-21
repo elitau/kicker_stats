@@ -45,7 +45,11 @@ class GamesController < ApplicationController
   # POST /games
   # POST /games.xml
   def create
-    @game = Game.create_game_with_matches_and_teams(params)
+    if params[:white_player_ids]
+      @game = Game.create_game_with_matches_and_teams(params)
+    else
+      @game = Game.create(:best_of => params[:best_of])
+    end
     respond_to do |format|
       if @game.save
         flash[:notice] = 'Game was successfully created.'

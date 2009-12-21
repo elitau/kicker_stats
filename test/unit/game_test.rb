@@ -18,7 +18,7 @@ class GameTest < ActiveSupport::TestCase
 
   def test_should_create_games
     best_of = 3
-    assert game = Game.create_game(best_of)
+    assert game = Game.create(:best_of => best_of)
     assert_kind_of Game, game
   end
 end
