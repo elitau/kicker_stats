@@ -34,6 +34,8 @@ class Match < ActiveRecord::Base
     Team.create_team(yellow_player_ids, self.id, "yellow")
   end
 
+  # TODO in team gibt es eine ähnliche methode die auch namen zurückgibt, aber gänzlich
+  # anders arbeitet. Man sollte versuchen diese beiden zu vereinen
   def team_player_names_or_ids_by_color( color, mode )
     names_or_ids = []
     @teams = Team.all(:conditions => ["match_id=? AND team_color=?", self.id, color])

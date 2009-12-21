@@ -3,10 +3,6 @@ class Team < ActiveRecord::Base
   belongs_to :player
   belongs_to :match
 
-  def usernames
-    players.collect(&:username).join(', ')
-  end
-
   def self.create_team(player_ids, match_id, team_color)
     team_number = find_team_number_for_player_ids(player_ids)
     # Falls es noch keine team_number gibt, wird eine neue einzigartige team_number erstellt
@@ -50,6 +46,13 @@ class Team < ActiveRecord::Base
     end
     return team_numbers
   end
+
+  def self.get_player_ids_for_teams(teams)
+    player_ids = teams.collect do |team|
+      team.player_id
+    end
+    return player_ids
+  end
   
   def self.single?(team_number)
     if Team.all(:conditions => ["team_number = ?", team_number],
@@ -58,6 +61,31 @@ class Team < ActiveRecord::Base
     else
       return false
     end
+  end
+
+  def get_team_player_names_by_team_number
+    player_ids = Team.all(:conditions => ["team_number = ?", self.team_number],
+                          :select => "DISTINCT(player_id)")
+    player_names = []
+    player_ids.each do |player_id|
+      player_names += [player_id.player.username]
+    end
+    return player_names.join(" und ")
+  end
+
+  def get_team_wins_by_team_number
+    count = 0
+    player_ids = Team.get_player_ids_for_teams(Team.all(:conditions => ["team_number = ?", self.team_number],
+                                                   :select => "DISTINCT(player_id)"))
+    Game.all.each do |game|
+      # TODO: Diese Abfrage ist nicht optimal. Wenn aus irgendeinem Grund die ids mal in
+      # umgekehrter Reihenfolge in einem der Arrays sind generiert die Abfrage false obwohl
+      # es in unserem Sinne richtig wäre
+      if game.winner_ids.eql? player_ids
+        count += 1
+      end
+    end
+    return count
   end
   
 end

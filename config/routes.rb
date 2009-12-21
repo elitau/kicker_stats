@@ -3,6 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :player_sessions
   map.resources :players, :has_many => :matches
   map.resources :games, :has_many => :matches
+  map.resources :teams
 
   map.login "login", :controller => "player_sessions", :action => "new"
   map.logout "logout", :controller => "player_sessions", :action => "destroy"

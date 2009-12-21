@@ -1,0 +1,21 @@
+<h2>Listing Teams</h2>
+
+<table class="full">
+  <tr>
+    <th>Team Number</th>
+    <th>Team Players</th>
+    <th>Team Wins</th>
+  </tr>
+
+<% @teams.each do |team| %>
+  <tr>
+    <td><%=h team.team_number %></td>
+    <td><%=h team.get_team_player_names_by_team_number %></td>
+    <td><%=h team.get_team_wins_by_team_number%></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Back', games_path %>
