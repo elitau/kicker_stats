@@ -23,6 +23,6 @@ white_ede_beats_tim_match_nr_<%= i.to_s %>:
   game: white_ede_beats_tim_nr_<%= i.to_s %>
   white_goals: 6
   yellow_goals: 3
-  created_at: <%= Date.today - 2.weeks %>
+  created_at: <%= Date.today - i.weeks %>
 
 <% end %>

@@ -6,7 +6,7 @@
     <th>White Goals</th>
     <th>Yellow Goals</th>
     <th>Yellow Team</th>
-    <th>Match Winner</th>
+    <th>Match date</th>
     <th></th>
     <th></th>
   </tr>
@@ -17,7 +17,7 @@
     <td><%= @match.white_goals %></td>
     <td><%= @match.yellow_goals %></td>
     <td class="<%= css_class_for_winner(@match, "yellow") %>"><%= show_names_of_players(@match.yellow_players) %></td>
-    <td><%= link_to 'Show', @match %></td>
+    <td><%= link_to @match.created_at.to_s(:short), @match %></td>
     <td><%= link_to 'Edit', edit_match_path(@match) %></td>
   </tr>
 <% end %>

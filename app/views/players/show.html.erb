@@ -47,10 +47,6 @@
       <%- @player.weekly_statistics.each do |statistic| -%>
         <th><%= statistic.date.to_date.cweek %></th>
       <%- end -%>
-        <th>2</th>
-        <th>3</th>
-        <th>4</th>
-        <th>5</th>
     </tr>
   </tfoot>
   <tbody>
@@ -58,11 +54,6 @@
       <%- @player.weekly_statistics.each do |statistic| -%>
         <td><%= statistic.value %></td>
       <%- end -%>
-      <td>8</td>
-      <td>25</td>
-      <td>27</td>
-      <td>25</td>
-      <td>54</td>
     </tr>
   </tbody>
 </table>

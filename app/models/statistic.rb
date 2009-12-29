@@ -8,15 +8,17 @@ class Statistic
   end
   
   def self.create_weekly_statistics_for(player)
+    return [] if player.matches.empty?
     weekly_packaged_matches = self.create_weekly_packaged_matches(player.matches)
     
     statistics = weekly_packaged_matches.collect do |a_weeks_matches|
+      next if a_weeks_matches.blank?
       self.new(
         :date => a_weeks_matches.first.created_at, 
         :value => a_weeks_matches.sum{|match| match.winner?(player) ? 1 : 0}
       )
     end
-    return statistics
+    return statistics.compact
   end
   
   # takes matches that are ordered by date, oldest first
