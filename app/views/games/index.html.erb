@@ -2,7 +2,7 @@
 
 <table class="full">
   <tr>
-    <th>ID</th>
+    <th>Name</th>
     <th>Best of</th>
     <th>Winner</th>
     <th></th>
@@ -12,14 +12,16 @@
 
 <% @games.each do |game| %>
   <tr>
-    <td><%= link_to game.id, game_matches_path(game) %></td>
+    <td><%= link_to game.team_names, game_matches_path(game) %></td>
     <td><%=h game.best_of %></td>
-    <td><%=h game.winner_names %></td>
+    <td><%=h show_names_of_players(game.winner_players) %></td>
     <td><%= link_to 'Edit', edit_game_path(game) %></td>
     <td><%= link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
+
+
 
 <br />
 

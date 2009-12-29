@@ -4,9 +4,16 @@ class PlayerTest < ActiveSupport::TestCase
 
   def test_wins
     player = players(:tim)
-    assert_equal 2, player.wins(-1)
-    assert_equal 1, player.wins(1)
-    assert_equal 1, player.wins(2)
+    white_winning_matches = player.matches.find(:all, :conditions => ["teams.team_color = 'white' AND matches.white_goals > matches.yellow_goals"])
+    yellow_winning_matches = player.matches.find(:all, :conditions => ["teams.team_color = 'yellow' AND matches.white_goals < matches.yellow_goals"])
+    
+    assert_equal 1, white_winning_matches.size
+    assert_equal 2, yellow_winning_matches.size
+    all_winning_matches = white_winning_matches+yellow_winning_matches
+    assert_equal 3, player.all_winning_matches.size
+    assert_equal all_winning_matches.sort_by(&:id), player.all_winning_matches.sort_by(&:id)
+    assert_equal 2, player.double_winning_matches.size
+    assert_equal 1, player.single_winning_matches.size
   end
 
   def test_full_name
@@ -19,4 +26,6 @@ class PlayerTest < ActiveSupport::TestCase
   def full_name(first, last)
     Player.new(:firstname => first, :lastname => last).full_name
   end
+  
+  
 end

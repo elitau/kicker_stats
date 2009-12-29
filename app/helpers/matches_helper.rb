@@ -1,9 +1,8 @@
 module MatchesHelper
   
-  
-  def show_winner(match, color)
-    if match.winner_team == match.send(:"#{color}_team")
-      image_tag("worldcup-icon-48.png", :height => 16, :width => 16)
+  def css_class_for_winner(match, color)
+    if match.winner_players == match.send("#{color}_players")
+      "winner"
     end
   end
   

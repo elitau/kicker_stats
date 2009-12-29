@@ -51,7 +51,7 @@ class GamesController < ApplicationController
       @game = Game.create(:best_of => params[:best_of])
     end
     respond_to do |format|
-      if @game.save
+      if @game.valid?
         flash[:notice] = 'Game was successfully created.'
         format.html { redirect_to(games_path) }
         format.xml  { render :xml => @game, :status => :created, :location => @game }

@@ -1,5 +1,3 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
 ede_first_game_first_match:
   player: ede
   match: four_players_game_first_match
@@ -60,3 +58,17 @@ tim_second_game_first_match:
   team_number: 4
   team_color: yellow
 
+<% 20.times do |i| %>
+white_ede_beats_tim_nr_<%= i %>_ede:
+  player: ede
+  match: white_ede_beats_tim_match_nr_<%= i %>
+  team_color: white
+  created_at: <%= Date.today - i.weeks %>
+
+white_ede_beats_tim_nr_<%= i %>_tim:
+  player: tim
+  match: white_ede_beats_tim_match_nr_<%= i %>
+  team_color: yellow
+  created_at: <%= Date.today - i.weeks %>
+
+<% end %>

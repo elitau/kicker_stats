@@ -1,8 +1,71 @@
-<p>
-  <b>Name:</b>
-  <%=h @player.username %>
-</p>
+<%- content_for(:script) do -%>
+  <%= javascript_include_tag 'raphael-min', 
+        'raphael_plugins/raphael.path.methods',
+        'analytics'
+  %>
+<style type="text/css" media="screen">
+  /* A font by Jos Buivenga (exljbris) -> www.exljbris.nl */
+  @font-face {
+        font-family: "Fontin-Sans";
+        src: url(fontin-sans.otf) format("opentype");
+  }
+  body {
+      background: #000 url(images/black.png);
+      color: #fff;
+      font: 300 100.1% Fontin-Sans, "Gill Sans", Calibri, "Trebuchet MS", sans-serif;
+  }
+  #holder {
+/*      height: 480px;*/
+      left: -100px;
+/*      margin: -240px 0 0 -320px;*/
+      position: relative;
+/*      top: 50%;*/
+      width: 100%;
+  }
+  #copy {
+      bottom: 0;
+      font: 300 .7em Fontin-Sans, "Gill Sans", Calibri, "Trebuchet MS", sans-serif;
+      position: absolute;
+      right: 1em;
+      text-align: right;
+  }
+  #copy a {
+      color: #000;
+  }
+</style>
 
+<%- end -%>
 
 <%= link_to 'Edit', edit_player_path(@player) %> |
 <%= link_to 'Back', players_path %>
+
+<h2>Wöchentliche Statistiken für <%=h @player.username %></h2>
+
+<table id="data">
+  <tfoot>
+    <tr>
+      <%- @player.weekly_statistics.each do |statistic| -%>
+        <th><%= statistic.date.to_date.cweek %></th>
+      <%- end -%>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+    </tr>
+  </tfoot>
+  <tbody>
+    <tr>
+      <%- @player.weekly_statistics.each do |statistic| -%>
+        <td><%= statistic.value %></td>
+      <%- end -%>
+      <td>8</td>
+      <td>25</td>
+      <td>27</td>
+      <td>25</td>
+      <td>54</td>
+    </tr>
+  </tbody>
+</table>
+
+<div id="holder"></div>
+

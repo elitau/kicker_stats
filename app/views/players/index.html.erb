@@ -1,12 +1,12 @@
-<h1>Listing players</h1>
+<h1>Listing Matches statistics</h1>
 
 <table>
   <tr>
     <th>Username</th>
     <th>Name</th>
-    <th>Total wins</th>
-    <th>Single wins</th>
-    <th>Double wins</th>
+    <th>Total matches</th>
+    <th>Single matches</th>
+    <th>Double matches</th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,9 +16,39 @@
   <tr>
     <td><%=h player.username %></td>
     <td><%=h player.full_name %></td>
-    <td><%=h player.wins(-1) %></td>
-    <td><%=h player.wins(1) %></td>
-    <td><%=h player.wins(2) %></td>
+    <td><%=h player.all_winning_matches.size %></td>
+    <td><%=h player.single_winning_matches.size %></td>
+    <td><%=h player.double_winning_matches.size %></td>
+    <td><%= link_to 'Show', player %></td>
+    <td><%= link_to 'Edit', edit_player_path(player) %></td>
+    <td><%= link_to 'Destroy', player, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<h1>Listing Games statistics</h1>
+
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Name</th>
+    <th>Total games</th>
+    <th>Single games</th>
+    <th>Double</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @players.each do |player| %>
+  <tr>
+    <td><%=h player.username %></td>
+    <td><%=h player.full_name %></td>
+    <td><%=h player.all_winning_games.size %></td>
+    <td><%=h player.single_winning_games.size %></td>
+    <td><%=h player.double_winning_games.size %></td>
     <td><%= link_to 'Show', player %></td>
     <td><%= link_to 'Edit', edit_player_path(player) %></td>
     <td><%= link_to 'Destroy', player, :confirm => 'Are you sure?', :method => :delete %></td>
