@@ -21,12 +21,14 @@ class Match < ActiveRecord::Base
   has_many :white_players, 
     :through    => :teams, 
     :source     => :player, 
-    :conditions => ["teams.team_color = ?", "white"]
+    :conditions => ["teams.team_color = ?", "white"],
+    :order => "id"
 
   has_many :yellow_players, 
     :through    => :teams, 
     :source     => :player, 
-    :conditions => ["teams.team_color = ?", "yellow"]
+    :conditions => ["teams.team_color = ?", "yellow"],
+    :order => "id"
     
   
   default_scope :order => 'created_at'

@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
   def index
-    @teams = Team.all(:select => "DISTINCT(team_number)", :order => "team_number")
+    @teams = Team.all_teams
 
     respond_to do |format|
       format.html # index.html.erb

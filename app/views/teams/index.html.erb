@@ -2,16 +2,14 @@
 
 <table class="full">
   <tr>
-    <th>Team Number</th>
     <th>Team Players</th>
     <th>Team Wins</th>
   </tr>
 
 <% @teams.each do |team| %>
   <tr>
-    <td><%=h team.team_number %></td>
-    <td><%=h team.get_team_player_names_by_team_number %></td>
-    <td><%=h team.get_team_wins_by_team_number%></td>
+    <td><%=h show_names_of_team_players_by_ids(team)  %></td>
+    <td><%=h Team.team_wins(team)  %></td>
   </tr>
 <% end %>
 </table>
