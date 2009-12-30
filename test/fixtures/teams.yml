@@ -1,61 +1,51 @@
 ede_first_game_first_match:
   player: ede
   match: four_players_game_first_match
-  team_number: 1
   team_color: white
 
 tim_first_game_first_match:
   player: tim
   match: four_players_game_first_match
-  team_number: 1
   team_color: white
 
 fabian_first_game_first_match:
   player: fab
   match: four_players_game_first_match
-  team_number: 2
   team_color: yellow
 
 marzel_first_game_first_match:
   player: marzel
   match: four_players_game_first_match
-  team_number: 2
   team_color: yellow
 
 ede_first_game_second_match:
   player: ede
   match: four_players_game_second_match
-  team_number: 1
   team_color: yellow
 
 tim_first_game_second_match:
   player: tim
   match: four_players_game_second_match
-  team_number: 1
   team_color: yellow
 
 fabian_first_game_second_match:
   player: fab
   match: four_players_game_second_match
-  team_number: 2
   team_color: white
 
 marzel_first_game_second_match:
   player: marzel
   match: four_players_game_second_match
-  team_number: 2
   team_color: white
 
 ede_second_game_first_match:
   player: ede
   match: two_players_game_first_match
-  team_number: 3
   team_color: white
 
 tim_second_game_first_match:
   player: tim
   match: two_players_game_first_match
-  team_number: 4
   team_color: yellow
 
 <% 20.times do |i| %>
