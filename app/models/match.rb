@@ -30,13 +30,6 @@ class Match < ActiveRecord::Base
     
   
   default_scope :order => 'created_at'
-  
-  def team_names
-    [
-      white_players.collect(&:username).join(","),
-      yellow_players.collect(&:username).join(",")
-    ].join(" vs. ")
-  end
 
   def winner_players
     if self.white_goals < self.yellow_goals

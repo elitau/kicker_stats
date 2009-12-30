@@ -20,11 +20,6 @@ class Game < ActiveRecord::Base
     return @game
   end
   
-  #TODO: refactor this richtung view helper
-  def team_names
-    matches.first.try(:team_names) || "???"
-  end
-  
   def winner?(player)
     winner_players.include?(player)
   end
