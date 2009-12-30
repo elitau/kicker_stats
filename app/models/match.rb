@@ -37,38 +37,6 @@ class Match < ActiveRecord::Base
       yellow_players.collect(&:username).join(",")
     ].join(" vs. ")
   end
-  
-  def self.create_match(game_id, white_goals, yellow_goals)
-    # match_winner = calculate_match_winner(white_goals, yellow_goals)
-    match = Match.create(:game_id => game_id,
-                         :white_goals => white_goals,
-                         :yellow_goals => yellow_goals )
-    return match
-  end
-
-  def find_or_create_teams(white_player_ids, yellow_player_ids)
-    # Team.create_team(white_player_ids, self.id, "white")
-    # Team.create_team(yellow_player_ids, self.id, "yellow")
-    self.white_players = Player.find(white_player_ids)
-    self.yellow_players = Player.find(yellow_player_ids)
-    self.save
-  end
-
-  # TODO in team gibt es eine ähnliche methode die auch namen zurückgibt, aber gänzlich
-  # anders arbeitet. Man sollte versuchen diese beiden zu vereinen
-  def team_player_names_or_ids_by_color( color, mode )
-    names_or_ids = []
-    @teams = Team.all(:conditions => ["match_id=? AND team_color=?", self.id, color])
-    @teams.each do |team|
-      if mode.eql?("names")
-        names_or_ids += [team.player.username]
-      elsif mode.eql?("ids")
-        names_or_ids += [team.player.id]
-      end
-    end
-    names_or_ids = names_or_ids.join(" und ") if mode.eql?("names")
-    return names_or_ids
-  end
 
   def winner_players
     if self.white_goals < self.yellow_goals
@@ -89,6 +57,5 @@ class Match < ActiveRecord::Base
   def double?
     self.white_players.count == 2
   end
-  
 
 end
