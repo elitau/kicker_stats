@@ -53,7 +53,12 @@ class GamesController < ApplicationController
     respond_to do |format|
       if @game.valid?
         flash[:notice] = 'Game was successfully created.'
-        format.html { redirect_to(games_path) }
+        if @game.best_of == 1
+          go_to = games_path
+        else
+          go_to = new_game_match_path(@game)
+        end
+        format.html { redirect_to(go_to) }
         format.xml  { render :xml => @game, :status => :created, :location => @game }
       else
         format.html { render :action => "new" }

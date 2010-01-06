@@ -48,6 +48,16 @@ tim_second_game_first_match:
   match: two_players_game_first_match
   team_color: yellow
 
+fab_game_with_one_match_of_three_first_match:
+  player: fab
+  match: game_with_one_match_of_three_first_match
+  team_color: white
+
+marzel_game_with_one_match_of_three_first_match:
+  player: marzel
+  match: game_with_one_match_of_three_first_match
+  team_color: yellow
+
 <% 20.times do |i| %>
 white_ede_beats_tim_nr_<%= i %>_ede:
   player: ede

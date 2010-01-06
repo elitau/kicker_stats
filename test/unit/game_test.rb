@@ -36,4 +36,5 @@ class GameTest < ActiveSupport::TestCase
     assert match.white_players.include?(players(:ede))
     assert match.yellow_players.include?(players(:tim))
   end
+  
 end

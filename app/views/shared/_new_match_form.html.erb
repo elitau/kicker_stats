@@ -1,20 +1,12 @@
-<% form_for(@game) do |f| %>
-  <%= f.error_messages %>
-
-  <p>Best_of
-    <%= radio_button_tag :best_of, 1 %>1
-    <%= radio_button_tag :best_of, 3, :checked => true %>3
-  </p>
-
-  <table class="full">
-    <tr>
-      <th>White Players</th>
-      <th><%= select_with_integer_options("white_goals", 0, 6) %></th>
-      <th> : </th>
-      <th><%= select_with_integer_options("yellow_goals", 0, 6) %></th>
-      <th>Yellow Players</th>
-    </tr>
-
+<table class="full">
+  <tr>
+    <th>White Players</th>
+    <th><%= select_with_integer_options("white_goals", 0, 6) %></th>
+    <th> : </th>
+    <th><%= select_with_integer_options("yellow_goals", 0, 6) %></th>
+    <th>Yellow Players</th>
+  </tr>
+  <%- if @game.new_record? -%>
     <tr>
       <td>
         <%= select_tag("white_player_ids[]",
@@ -55,18 +47,13 @@
         <%= select_tag("yellow_player_ids[]", player_options, :disabled => true, :id => "second_yellow_select" ) %>
       </td>
     </tr>
-  </table>
-
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
-
-  <script language = "javascript">
-    function activate_second_player_on_white_team(element){
-        element.form.second_white_select.disabled = !element.checked;
-    }
-    function activate_second_player_on_yellow_team(element){
-        element.form.second_yellow_select.disabled = !element.checked;
-    }
-  </script>
-<% end %>
+  <%- else -%>
+    <tr>
+      <td><%= show_names_of_players @game.matches.last.yellow_players %></td>
+      <td><%= hidden_field_tag("white_player_ids[]", @game.matches.last.yellow_player_ids)  %></td>
+      <td></td>
+      <td><%= hidden_field_tag("yellow_player_ids[]", @game.matches.last.white_player_ids)  %></td>
+      <td><%= show_names_of_players @game.matches.last.white_players %></td>
+    </tr>
+  <%- end -%>
+</table>

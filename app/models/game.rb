@@ -11,6 +11,7 @@ class Game < ActiveRecord::Base
       match.save
       match.teams.create_colored_team(params[:white_player_ids], "white")
       match.teams.create_colored_team(params[:yellow_player_ids], "yellow")
+      return match
     end
   end
   
@@ -29,11 +30,12 @@ class Game < ActiveRecord::Base
       self.matches.first.winner_players
     else
       match_winner_players = self.matches.collect(&:winner_players)
-      if match_winner_players[0] == match_winner_players[1]
+      expected_winner = if match_winner_players[0] == match_winner_players[1]
         match_winner_players[0]
       else
         match_winner_players[2]
       end
+      return expected_winner ? expected_winner : []
     end
   end
   
@@ -44,5 +46,8 @@ class Game < ActiveRecord::Base
   def double?
     self.matches.first.double?
   end
-
+  
+  # def next_match
+  #   return self.matches.build(:white_players => "value", )
+  # end
 end

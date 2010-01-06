@@ -6,6 +6,9 @@ four_players_game:
 two_players_game:
   best_of: 1
 
+game_with_one_match_of_three:
+  best_of: 3
+
 <%- 20.times do |i| %>
 white_ede_beats_tim_nr_<%= i %>:
   best_of: 1

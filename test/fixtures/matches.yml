@@ -15,6 +15,11 @@ two_players_game_first_match:
   white_goals: 3
   yellow_goals: 6
 
+game_with_one_match_of_three_first_match:
+  game: game_with_one_match_of_three
+  white_goals: 3
+  yellow_goals: 6
+
 <% 20.times do |i| %>
 white_ede_beats_tim_match_nr_<%= i.to_s %>:
   game: white_ede_beats_tim_nr_<%= i.to_s %>

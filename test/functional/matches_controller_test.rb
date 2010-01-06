@@ -8,16 +8,23 @@ class MatchesControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
-    get :new
+    get :new, :game_id => games(:game_with_one_match_of_three).id
     assert_response :success
   end
 
   test "should create match" do
+    game = games(:game_with_one_match_of_three)
+    first_match = game.matches.first
+    params = match_params(
+      :white_player_ids => first_match.yellow_player_ids,
+      :yellow_player_ids => first_match.white_player_ids,
+      :game_id => game.id
+    )
     assert_difference('Match.count') do
-      post :create, :match => match_params, :game_id => games(:four_players_game).id
+      post :create, params
     end
 
-    assert_redirected_to match_path(assigns(:match))
+    assert_redirected_to new_game_match_path(assigns(:game))
   end
 
   test "should show match" do
@@ -26,7 +33,9 @@ class MatchesControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    get :edit, :id => matches(:four_players_game_first_match).to_param
+    get :edit, 
+      :id => matches(:four_players_game_first_match).to_param, 
+      :game_id => games(:four_players_game).id
     assert_response :success
   end
 

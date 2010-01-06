@@ -8,7 +8,7 @@
 
 <% @teams.each do |team| %>
   <tr>
-    <td><%=h show_names_of_team_players_by_ids(team)  %></td>
+    <td><%=h show_names_of_players_by_ids(team)  %></td>
     <td><%=h Team.team_wins(team)  %></td>
   </tr>
 <% end %>

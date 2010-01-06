@@ -16,10 +16,19 @@ class GamesControllerTest < ActionController::TestCase
   test "should create game" do
     assert_difference('Game.count') do
       post :create,
-        :best_of  => 3
+        :best_of  => 1
     end
 
     assert_redirected_to games_path
+  end
+  
+  test "should render next match form if playing best_of 3" do
+    assert_difference('Game.count') do
+      post :create,
+        :best_of  => 3
+    end
+    game = assigns(:game)
+    assert_redirected_to new_game_match_path(game)
   end
 
   test "should show game" do
