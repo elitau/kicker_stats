@@ -393,7 +393,7 @@ body.list li.withimage span.name {
 	white-space: nowrap;
 }
 body.list li.withimage .comment {
-	margin: 10px auto auto 90px !important;
+	margin: 3px auto auto 90px !important;
 	max-width: 63%!important;
 }
 body.list li.withimage a, body.list li.withimage:hover a {

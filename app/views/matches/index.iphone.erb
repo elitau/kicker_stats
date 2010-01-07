@@ -1,1 +1,27 @@
-<%= matches_list(@matches) %>
+<%- content_for :topbar do -%>
+  <div id="leftbutton">
+    <%= link_to 'New game', new_game_path %>
+  </div>
+<%- end -%>
+
+<span class="graytitle"><%= show_names_of_game_players(@matches.first) %></span>
+<ul class="pageitem">
+  <%- @matches.each do |match| %>
+    <li class="store match">
+  	  <a class="noeffect" href="#">
+        <!-- <span class="image" style="background-image: url('pics/stadiumarcadium.jpg');"></span> -->
+        <span class="comment match_title">
+          <span class="<%= css_class_for_winner(match, "white") %>">
+            <%= show_names_of_players(match.white_players) %>
+          </span> vs. 
+          <span class="<%= css_class_for_winner(match, "yellow") %>">
+             <%= show_names_of_players(match.yellow_players) %>
+          </span>
+        </span>
+  	    <span class="name match_goals"><%= match.white_goals %> : <%= match.yellow_goals %></span>
+        <!-- <img alt="rating" class="stars" src="images/4stars.png" /> -->
+        <!-- <span class="starcomment">13 Reviews</span> -->
+  	  </a>
+  	</li>
+  <%-end -%>
+</ul>

@@ -2,3 +2,29 @@
 	color: yellow;
 	font-style: yellow;
 }
+
+.comment {
+	margin: 3px auto auto 90px !important;
+	max-width: 63%!important;
+}
+
+.match {
+	text-align:	center;
+}
+
+.match_title{
+	
+}
+
+.match_goals {
+	font-size: 30px !important;
+}
+.match_title > .yellow {
+	color: yellow;
+}
+
+.match_title > .winner {
+	font-weight: bold !important;
+	color: black;
+	font-size: 14px !important;
+}
