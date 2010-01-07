@@ -1,6 +1,7 @@
 module GamesHelper
   
   def show_names_of_players(players)
+    return "Nobody" unless players
     players.collect(&:username).join(", ")
   end
 

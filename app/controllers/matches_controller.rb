@@ -15,9 +15,7 @@ class MatchesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @matches }
-      format.iphone do
-        render :layout => "application2"
-      end
+      format.iphone
     end
   end
 
@@ -57,7 +55,7 @@ class MatchesController < ApplicationController
     respond_to do |format|
       if @match.valid?
         flash[:notice] = 'Match was successfully created.'
-        if @game.best_of == @game.matches.count
+        if @game.finished?
           go_to = game_matches_path(@game)
         else
           go_to = new_game_match_path(@game)

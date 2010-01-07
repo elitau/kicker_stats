@@ -58,17 +58,17 @@ marzel_game_with_one_match_of_three_first_match:
   match: game_with_one_match_of_three_first_match
   team_color: yellow
 
-<% 20.times do |i| %>
-white_ede_beats_tim_nr_<%= i %>_ede:
-  player: ede
-  match: white_ede_beats_tim_match_nr_<%= i %>
-  team_color: white
-  created_at: <%= Date.today - i.weeks %>
-
-white_ede_beats_tim_nr_<%= i %>_tim:
-  player: tim
-  match: white_ede_beats_tim_match_nr_<%= i %>
-  team_color: yellow
-  created_at: <%= Date.today - i.weeks %>
-
-<% end %>
+# <% 20.times do |i| %>
+# white_ede_beats_tim_nr_<%= i %>_ede:
+#   player: ede
+#   match: white_ede_beats_tim_match_nr_<%= i %>
+#   team_color: white
+#   created_at: <%= Date.today - i.weeks %>
+# 
+# white_ede_beats_tim_nr_<%= i %>_tim:
+#   player: tim
+#   match: white_ede_beats_tim_match_nr_<%= i %>
+#   team_color: yellow
+#   created_at: <%= Date.today - i.weeks %>
+# 
+# <% end %>

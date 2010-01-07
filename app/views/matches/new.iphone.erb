@@ -1,29 +1,38 @@
+<%#= link_to "Save", "#", :type => "submit", :class=>"whiteButton" %>
 <%- goals_select_options = options_for_select((0..6).collect{|i| [i.to_s, i.to_s]}) -%>
 
-<% form_for([@game, @match], :html => {:id=>"settings", :title=>"#{@game.matches.count+1}. Match Results", :class=>"panel", :selected=>"true", :target => "_self"}) do |f| %>
+<% form_for([@game, @match]) do |f| %>
   <%= f.error_messages %>
-  <h2>Weiß</h2>
-  <fieldset>
-    <div class="row">
-      <label><%= show_names_of_players @game.matches.last.yellow_players %></label>
+
+  <span class="graytitle">Weißer Spieler</span>
+  <ul class="pageitem">
+    <li class="form">
+      <%= show_names_of_players @game.matches.last.yellow_players %>
       <%= hidden_field_tag("white_player_ids[]", @game.matches.last.yellow_player_ids)  %>
-    </div>
-    <div class="row">
-      <%= label :white_goals, "Tore" %>
-      <%= select_tag(:white_goals, goals_select_options) %>
-    </div>
-  </fieldset>
+    </li>
   
-  <h2>Gelb</h2>
-  <fieldset>
-    <div class="row yellow">
-      <label><%= show_names_of_players @game.matches.last.white_players %></label>
+    <li class="form">
+      <%= select_tag(:white_goals, goals_select_options) %>
+      <span class="arrow"></span>
+    </li>
+  </ul>
+
+  <span class="graytitle yellow">Gelber Spieler</span>
+  <ul class="pageitem">
+    <li class="form">
+      <%= show_names_of_players @game.matches.last.white_players %>
       <%= hidden_field_tag("yellow_player_ids[]", @game.matches.last.white_player_ids)  %>
-    </div>    
-    <div class="row yellow">
-      <%= label_tag :yellow_goals, "Tore" %>
+    </li>
+  
+    <li class="form">
       <%= select_tag(:yellow_goals, goals_select_options) %>
-    </div>
-  </fieldset>
-  <%= link_to "Save", "#", :type => "submit", :class=>"whiteButton" %>
+      <span class="arrow"></span>
+    </li>
+  </ul>
+
+  <ul class="pageitem">
+  	<li class="form">
+    <input name="Submit input" type="submit" value="Submit input" class="whiteButton" /></li>
+  </ul>
 <%- end -%>
+

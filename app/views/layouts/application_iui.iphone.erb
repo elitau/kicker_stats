@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charjuqeset=UTF-8" />
+  <title></title>
+  <meta name = "viewport" content = "width = device-width, user-scalable=no 
+      minimum-scale=1.0 maximum-scale=1.0"> 
+  <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag "iui" %>
+  <%= include_tank_engine_files %>
+  <%= stylesheet_link_tag "iphone" %>
+  <%= yield :jquery %>
+  <%= javascript_include_tag "tank_engine" %>
+</head>
+<body>
+<div class="toolbar">
+  <h1 id="pageTitle"><%= yield(:toolbar) or @title %></h1>
+</div>
+
+<%= yield %>
+</body>
+</html>

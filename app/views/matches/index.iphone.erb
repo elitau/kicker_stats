@@ -4,7 +4,7 @@
   </div>
 <%- end -%>
 
-<span class="graytitle"><%= show_names_of_game_players(@matches.first) %></span>
+<span class="graytitle">Gewinner: <%= show_names_of_players(@game.winner_players) %></span>
 <ul class="pageitem">
   <%- @matches.each do |match| %>
     <li class="store match">

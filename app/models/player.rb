@@ -57,6 +57,10 @@ class Player < ActiveRecord::Base
     @games ||= games_from_matches(self.matches)
   end
   
+  def <=>(other_player)
+    self.username <=> other_player.username
+  end
+  
   def games_from_matches(matches)
     matches.collect do |match|
       match.game

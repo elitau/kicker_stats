@@ -2,6 +2,8 @@ class Game < ActiveRecord::Base
   validates_inclusion_of :best_of, :in => [1,3],
                          :message => "{{value}} is not a valid option"
 
+  default_scope :order => 'created_at DESC'
+
   has_many :matches, :dependent => :destroy do
     def create_match(params)
       match = proxy_owner.matches.build(
@@ -15,27 +17,38 @@ class Game < ActiveRecord::Base
     end
   end
   
+  
   def self.create_game_with_matches_and_teams(params)
     @game = Game.create(:best_of => params[:best_of])
     @game.matches.create_match(params)
     return @game
   end
   
-  def winner?(player)
-    winner_players.include?(player)
+  def winner?(player_or_players)
+    return false unless winner_players
+    if player_or_players.is_a?(Array)
+      winner_players.sort == player_or_players.sort
+    else
+      winner_players.include?(player_or_players)
+    end
   end
   
+  def finished?
+    return self.winner_players ? true : false
+  end
+  
+  # returns nil if the winner could not be calculated (this happen on best_of
+  # = 3 and only two matches played until now)
   def winner_players
     if best_of == 1
       self.matches.first.winner_players
     else
       match_winner_players = self.matches.collect(&:winner_players)
-      expected_winner = if match_winner_players[0] == match_winner_players[1]
+      if match_winner_players[0] == match_winner_players[1]
         match_winner_players[0]
       else
         match_winner_players[2]
       end
-      return expected_winner ? expected_winner : []
     end
   end
   
