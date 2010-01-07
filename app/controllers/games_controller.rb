@@ -11,7 +11,8 @@ class GamesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @games }
-      respond_to_iphone(format)
+      format.iphone { render :layout => "application2" }
+      # respond_to_iphone(format)
     end
   end
   
@@ -41,7 +42,7 @@ class GamesController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @game }
-      format.iphone
+      format.iphone { render :layout => "application2" }
     end
   end
 

@@ -1,0 +1,23 @@
+<%- content_for :body_class, "list" -%>
+
+<%- content_for :topbar do -%>
+  <div id="leftbutton">
+    <%= link_to 'New game', new_game_path %>
+  </div>
+<%- end -%>
+<ul class="autolist">
+	<li class="title">Music to buy</li>
+  <%- @games.each do |game| -%>
+		<li class="withimage">
+		  <a class="noeffect" href="<%= game_matches_path(game) %>">
+        <!-- <img alt="test" src="pics/californiacation.jpg" /> -->
+		    <span class="name"><%= show_names_of_game_players(game.matches.first) %></span>
+		    <span class="comment"><%= "#{show_names_of_players(game.winner_players)} hat gewonnen" %></span>
+		    <span class="arrow"></span>
+		  </a>
+		</li>
+	  <%- end -%>
+	<li class="hidden autolisttext">
+	  <a class="noeffect" href="#">Load 10 more games...</a>
+	</li>
+</ul>
