@@ -16,7 +16,7 @@
 </head>
 <body>
 <div class="toolbar">
-  <h1 id="pageTitle"><%= yield :toolbar %></h1>
+  <h1 id="pageTitle"><%= yield(:toolbar) or @title %></h1>
 </div>
 
 <%= yield %>

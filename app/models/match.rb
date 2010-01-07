@@ -1,5 +1,11 @@
 class Match < ActiveRecord::Base
   
+  module PlayerExtension
+    def usernames
+      proxy_target.collect(&:username).join(", ")
+    end
+  end
+  
   validates_presence_of :yellow_goals
   validates_presence_of :white_goals
   
@@ -16,21 +22,26 @@ class Match < ActiveRecord::Base
       end
     end
   end
-  has_many :players, :through => :teams
+  has_many :players, :through => :teams, :extend => PlayerExtension do
+    def usernames
+      proxy_target.collect(&:username).join(", ")
+    end
+  end
   
   has_many :white_players, 
     :through    => :teams, 
     :source     => :player, 
     :conditions => ["teams.team_color = ?", "white"],
-    :order => "id"
+    :order => "id",
+    :extend => PlayerExtension
 
   has_many :yellow_players, 
     :through    => :teams, 
     :source     => :player, 
     :conditions => ["teams.team_color = ?", "yellow"],
-    :order => "id"
+    :order => "id",
+    :extend => PlayerExtension
     
-  
   default_scope :order => 'created_at'
 
   def winner_players

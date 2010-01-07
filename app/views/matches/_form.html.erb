@@ -1,24 +1,3 @@
-<%- goals_for_select = (1..6).collect {|p| [ p, p ] } -%>
 Eintragen der Ergebnisse vom <%= @game.matches.count + 1 %>. Match:
 
 <%= render :partial => "shared/new_match_form" %>
-<!-- <table class="full">
-  <tr>
-    <th><%= f.label :white_goals, "White Players" %></th>
-    <th>
-      <%= f.select(:white_goals, goals_for_select) %>
-    </th>
-    <th> : </th>
-    <th><%= f.label :yellow_goals, "White Players" %></th>
-    <th>
-      <%= f.select(:yellow_goals, goals_for_select) %>
-    </th>
-  </tr>
-  <tr>
-    <td><%= show_names_of_players @game.matches.last.yellow_players %></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td><%= show_names_of_players @game.matches.last.white_players %></td>
-  </tr>
-</table> -->

@@ -1,0 +1,29 @@
+<%- goals_select_options = options_for_select((0..6).collect{|i| [i.to_s, i.to_s]}) -%>
+
+<% form_for([@game, @match], :html => {:id=>"settings", :title=>"#{@game.matches.count+1}. Match Results", :class=>"panel", :selected=>"true", :target => "_self"}) do |f| %>
+  <%= f.error_messages %>
+  <h2>Weiß</h2>
+  <fieldset>
+    <div class="row">
+      <label><%= show_names_of_players @game.matches.last.yellow_players %></label>
+      <%= hidden_field_tag("white_player_ids[]", @game.matches.last.yellow_player_ids)  %>
+    </div>
+    <div class="row">
+      <%= label :white_goals, "Tore" %>
+      <%= select_tag(:white_goals, goals_select_options) %>
+    </div>
+  </fieldset>
+  
+  <h2>Gelb</h2>
+  <fieldset>
+    <div class="row yellow">
+      <label><%= show_names_of_players @game.matches.last.white_players %></label>
+      <%= hidden_field_tag("yellow_player_ids[]", @game.matches.last.white_player_ids)  %>
+    </div>    
+    <div class="row yellow">
+      <%= label_tag :yellow_goals, "Tore" %>
+      <%= select_tag(:yellow_goals, goals_select_options) %>
+    </div>
+  </fieldset>
+  <%= link_to "Save", "#", :type => "submit", :class=>"whiteButton" %>
+<%- end -%>

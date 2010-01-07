@@ -1,18 +1,14 @@
 <p>
   <b>Winner:</b>
-  <%h show_names_of_players(@game.winner_players) %>
+  <%= show_names_of_players(@game.winner_players) %>
 </p>
 
 <p>
-  <b>Yellow goals:</b>
-  <%#h @game.yellow_goals %>
-</p>
-
-<p>
-  <b>Goals to win:</b>
-  <%#h @game.goals_to_win %>
+  <b>Matches:</b>
+  <%= @game.matches.count %>
 </p>
 
 
 <%= link_to 'Edit', edit_game_path(@game) %> |
-<%= link_to 'Back', games_path %>
+<%= link_to 'Back', games_path, :target => "_self" %> |
+<%= link_to 'Game Matches', game_matches_path(@game), :target => "_self" %>
