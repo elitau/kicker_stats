@@ -3,12 +3,14 @@ module ActionView
     module FormHelper
       def toggle(object_name, method, options = {})
         obj = instance_variable_get("@#{object_name}")
-        value = if obj.send(method) then "ON" else "OFF" end
+        on = options[:on_value] || true
+        off = options[:off_value] || false
+        value = if obj.send(method) then on else off end
         hidden = hidden_field_tag("#{object_name}[#{method}]", value, 
             :id => "#{object_name}_#{method}")
         thumb = content_tag(:span, "", :class => "thumb")
-        on = content_tag(:span, "ON", :class => "toggleOn")
-        off = content_tag(:span, "OFF", :class => "toggleOff")
+        on = content_tag(:span, on, :class => "toggleOn")
+        off = content_tag(:span, off, :class => "toggleOff")
         toggle = content_tag(:div, thumb + on + off, 
             :toggled => (if obj.send(method) then true else false end),
             :value => value,
@@ -24,6 +26,8 @@ module ActionView
       def toggle(method, options = {})
         @template.toggle(@object_name, method, objectify_options(options))
       end
+      
+      
       
     end
     
