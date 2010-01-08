@@ -7,7 +7,13 @@ class GamesController < ApplicationController
   # GET /games.xml
   def index
     @games = Game.all
-
+    
+    logger.debug { "========================================" }
+    logger.debug { "========================================" }
+    logger.debug { "#{request.user_agent}" }
+    logger.debug { "========================================" }
+    logger.debug { "========================================" }
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @games }
@@ -58,8 +64,8 @@ class GamesController < ApplicationController
     respond_to do |format|
       if @game.valid?
         flash[:notice] = 'Game was successfully created.'
-        if @game.best_of == 1
-          go_to = games_path
+        if @game.finished?
+          go_to = game_matches_path(@game)
         else
           go_to = new_game_match_path(@game)
         end

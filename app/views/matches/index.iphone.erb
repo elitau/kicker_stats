@@ -8,7 +8,7 @@
 <ul class="pageitem">
   <%- @matches.each do |match| %>
     <li class="store match">
-  	  <a class="noeffect" href="#">
+  	  <a class="noeffect" href="<%= game_matches_path(@game) %>">
         <!-- <span class="image" style="background-image: url('pics/stadiumarcadium.jpg');"></span> -->
         <span class="comment match_title">
           <span class="<%= css_class_for_winner(match, "white") %>">
