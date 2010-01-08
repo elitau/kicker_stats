@@ -1,6 +1,7 @@
 class GamesController < ApplicationController
   acts_as_iphone_controller #:test_mode => true #, :ignore_iphone_user_agent => true
   
+  # ich glaub, das ist deprecated
   before_filter :convert_iphone_params
   
   # GET /games
@@ -8,11 +9,11 @@ class GamesController < ApplicationController
   def index
     @games = Game.all
     
-    logger.debug { "========================================" }
-    logger.debug { "========================================" }
-    logger.debug { "#{request.user_agent}" }
-    logger.debug { "========================================" }
-    logger.debug { "========================================" }
+    logger.warn { "========================================" }
+    logger.warn { "========================================" }
+    logger.warn { "#{request.user_agent}" }
+    logger.warn { "========================================" }
+    logger.warn { "========================================" }
     
     respond_to do |format|
       format.html # index.html.erb
