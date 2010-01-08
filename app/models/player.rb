@@ -25,6 +25,10 @@ class Player < ActiveRecord::Base
     end
   end
   
+  def all_lost_matches
+    matches - all_winning_matches
+  end
+  
   def single_winning_matches
     all_winning_matches.select(&:single?)
   end
@@ -51,6 +55,10 @@ class Player < ActiveRecord::Base
     all_winning_games.select do |game|
       game.double?
     end
+  end
+  
+  def all_lost_games
+    all_games - all_winning_games
   end
   
   def all_games

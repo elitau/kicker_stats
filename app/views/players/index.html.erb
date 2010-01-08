@@ -4,7 +4,9 @@
   <tr>
     <th>Username</th>
     <th>Name</th>
+    <th>All matches</th>
     <th>All won matches</th>
+    <th>All lost matches</th>
     <th>Single won matches</th>
     <th>Double won matches</th>
     <th></th>
@@ -16,7 +18,9 @@
   <tr>
     <td><%=h player.username %></td>
     <td><%=h player.full_name %></td>
+    <td><%=h player.matches.size %></td>
     <td><%=h player.all_winning_matches.size %></td>
+    <td><%=h player.all_lost_matches.size %></td>
     <td><%=h player.single_winning_matches.size %></td>
     <td><%=h player.double_winning_matches.size %></td>
     <td><%= link_to 'Show', player %></td>
@@ -34,7 +38,9 @@
   <tr>
     <th>Username</th>
     <th>Name</th>
+    <th>All games</th>
     <th>All won games</th>
+    <th>All lost games</th>
     <th>Single won games</th>
     <th>Double won games</th>
     <th></th>
@@ -46,7 +52,9 @@
   <tr>
     <td><%=h player.username %></td>
     <td><%=h player.full_name %></td>
+    <td><%=h player.all_games.size %></td>
     <td><%=h player.all_winning_games.size %></td>
+    <td><%=h player.all_lost_games.size %></td>
     <td><%=h player.single_winning_games.size %></td>
     <td><%=h player.double_winning_games.size %></td>
     <td><%= link_to 'Show', player %></td>
