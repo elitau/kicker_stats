@@ -50,9 +50,17 @@
   <%- else -%>
     <tr>
       <td><%= show_names_of_players @game.matches.last.yellow_players %></td>
-      <td><%= hidden_field_tag("white_player_ids[]", @game.matches.last.yellow_player_ids)  %></td>
+      <td>
+        <%- @game.matches.last.yellow_player_ids.each do |player_id| -%>
+          <%= hidden_field_tag("white_player_ids[]", player_id) %>
+        <%- end -%>
+      </td>
       <td></td>
-      <td><%= hidden_field_tag("yellow_player_ids[]", @game.matches.last.white_player_ids)  %></td>
+      <td>
+        <%- @game.matches.last.white_player_ids.each do |player_id| -%>
+          <%= hidden_field_tag("yellow_player_ids[]", player_id) %>
+        <%- end -%>
+      </td>
       <td><%= show_names_of_players @game.matches.last.white_players %></td>
     </tr>
   <%- end -%>
