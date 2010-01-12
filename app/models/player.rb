@@ -19,6 +19,21 @@ class Player < ActiveRecord::Base
     Statistic.create_weekly_statistics_for(self)
   end
   
+  # goal_shot
+  def goals_shot
+    matches.inject(0) do |memo, match|
+      memo + match.goals_shot_for_player(self)
+    end
+  end
+  
+  # tore, die man rein bekommen hat
+  def sucked_goals
+    sum
+    matches.collect do |match|
+      match.goals_shot_for_player(self)
+    end
+  end
+  
   def all_winning_matches
     matches.select do |match|
       match.winner?(self)

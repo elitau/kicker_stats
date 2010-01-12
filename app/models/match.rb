@@ -63,5 +63,13 @@ class Match < ActiveRecord::Base
   def double?
     self.white_players.count == 2
   end
+  
+  def goals_shot_for_player(player)
+    if white_players.include?(player)
+      white_goals
+    else
+      yellow_goals
+    end
+  end
 
 end

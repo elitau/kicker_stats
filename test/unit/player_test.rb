@@ -26,6 +26,13 @@ class PlayerTest < ActiveSupport::TestCase
   def full_name(first, last)
     Player.new(:firstname => first, :lastname => last).full_name
   end
-  
+
+  def test_should_have_goals_shot
+    player = Player.new
+    match = Match.new
+    match.expects(:goals_shot_for_player).with(player).returns(4)
+    player.expects(:matches).returns([match, match])
+    assert_equal 8, player.goals_shot
+  end
   
 end
