@@ -46,3 +46,7 @@ span.green{
 span.black{
 	color: black;
 }
+
+li > img.player_image {
+	float: right;
+}

@@ -4,10 +4,10 @@
 
   <span class="graytitle">
     Weißer Spieler
-    <%= image_tag @game.matches.last.yellow_players.first.avatar.url(:small) %>
   </span>
   <ul class="pageitem">
     <li class="form">
+      <%= image_tag @game.matches.last.yellow_players.first.avatar.url(:small), :class => "player_image" %>
       <%= show_names_of_players @game.matches.last.yellow_players %>
       <%= hidden_field_tag("white_player_ids[]", @game.matches.last.yellow_player_ids)  %>
     </li>
@@ -19,11 +19,13 @@
 
   <span class="graytitle yellow">
     Gelber Spieler 
-    <%= image_tag @game.matches.last.white_players.first.avatar.url(:small) %>
   </span>
   <ul class="pageitem">
     <li class="form">
-      <%= show_names_of_players @game.matches.last.white_players %>
+      <%= image_tag @game.matches.last.white_players.first.avatar.url(:small), :class => "player_image" %>
+      <span>
+        <%= show_names_of_players @game.matches.last.white_players %>
+      </span>
       <%= hidden_field_tag("yellow_player_ids[]", @game.matches.last.white_player_ids)  %>
     </li>
     <li class="form">

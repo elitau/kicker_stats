@@ -4,6 +4,7 @@ ede:
   username: Ede
   firstname: Eduard
   lastname: Litau
+  avatar_file_name: ede.jpg
 
 tim:
   username: Tim
