@@ -7,9 +7,10 @@
 <span class="graytitle">Gewinner: <%= show_names_of_players(@game.winner_players) %></span>
 <ul class="pageitem">
   <%- @matches.each do |match| %>
+    <%- match_winner_player = (match.winner_players.blank? ? match.players.first : match.winner_players.first) -%>
     <li class="store match">
   	  <a class="noeffect" href="<%= game_matches_path(@game) %>">
-        <!-- <span class="image" style="background-image: url('pics/stadiumarcadium.jpg');"></span> -->
+        <span class="image" style="background-image: url('<%= match_winner_player.avatar.url(:thumb) %>');"></span>
         <span class="comment match_title">
           <span class="<%= css_class_for_winner(match, "white") %>">
             <%= show_names_of_players(match.white_players) %>
