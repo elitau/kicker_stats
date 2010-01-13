@@ -28,3 +28,9 @@
 	color: black;
 	font-size: 14px !important;
 }
+
+span.value {
+	float: right;
+	padding-right: 10px;
+	border-left: none !important;
+}

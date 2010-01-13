@@ -1,4 +1,5 @@
 class PlayersController < ApplicationController
+  acts_as_iphone_controller
   # GET /players
   # GET /players.xml
   def index
@@ -7,6 +8,7 @@ class PlayersController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @players }
+      format.iphone
     end
   end
 
@@ -25,10 +27,11 @@ class PlayersController < ApplicationController
   # GET /players/1.xml
   def show
     @player = Player.find(params[:id])
-
+    @statistics = Statistic.create_detailed_statistics_for(@player)
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @player }
+      format.iphone
     end
   end
 

@@ -1,0 +1,11 @@
+<%- content_for :body_class, "musiclist" -%>
+<ul class="autolist player_statistics">
+  <%- @statistics.each do |statistic| -%>
+    <li>
+	    <span class="name"><%= t(statistic.name) %></span>
+	    <span class="name value"><%= statistic.value %></span>
+      <!-- <span class="time">(3:58)</span> -->
+      <!-- <span class="arrow"></span> -->
+		</li>
+  <%- end -%>
+</ul>

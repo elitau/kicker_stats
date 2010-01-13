@@ -42,36 +42,12 @@
 <h2>Allgemeine Statistiken</h2>
 <br />
 <table border="0" cellspacing="5" cellpadding="5">
-  <tr>
-    <td>Gewonnene Spiele</td>
-    <td><%= @player.all_winning_games.size %></td>
-  </tr>
-  <tr>
-    <td>Gewonnene Matches</td>
-    <td><%= @player.all_winning_matches.size %></td>
-  </tr>
-  <tr>
-    <td>Verlorene Spiele</td>
-    <td><%= @player.all_lost_games.size %></td>
-  </tr>
-  <tr>
-    <td>Verlorene Matches</td>
-    <td><%= @player.all_lost_matches.size %></td>
-  </tr>
-  <tr>
-    <td>Geschossene Tore</td>
-    <td><%= @player.goals_shot %></td>
-  </tr>
-  <tr>
-    <td>Kassierte Tore</td>
-    <td><%= @player.sucked_goals %></td>
-  </tr>
-  <tr>
-    <td>Torverhältnis</td>
-    <td><%= show_goals_ratio(@player.goals_ratio) %></td>
-  </tr>
-  
-  
+  <%- @statistics.each do |statistic| -%>
+    <tr>
+      <td><%= t(statistic.name) %></td>
+      <td><%= statistic.value %></td>
+    </tr>
+  <%- end -%>
 </table>
 <br />
 <br />

@@ -1,6 +1,6 @@
 class Player < ActiveRecord::Base
   # acts_as_authentic
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "90x90>" }
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "90x90>", :small => "20x20" }
   
   validates_uniqueness_of :username
   validates_presence_of :username

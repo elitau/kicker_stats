@@ -1,10 +1,14 @@
 class Statistic
   
-  attr_accessor :date, :value
+  extend ApplicationHelper
+  extend ActionView::Helpers::TagHelper
+  
+  attr_accessor :date, :value, :name
   
   def initialize(options)
     @date  = options[:date]
     @value = options[:value]
+    @name  = options[:name]
   end
   
   def self.create_weekly_statistics_for(player)
@@ -19,6 +23,18 @@ class Statistic
       )
     end
     return statistics.compact
+  end
+  
+  def self.create_detailed_statistics_for(player)
+    return [
+      self.new(:name => :all_winning_games, :value => player.all_winning_games.size),
+      self.new(:name => :all_winning_matches, :value => player.all_winning_matches.size),
+      self.new(:name => :all_lost_games, :value => player.all_lost_games.size),
+      self.new(:name => :all_lost_matches, :value => player.all_lost_matches.size),
+      self.new(:name => :goals_shot, :value => player.goals_shot),
+      self.new(:name => :sucked_goals, :value => player.sucked_goals),
+      self.new(:name => :goals_ratio, :value => show_goals_ratio(player.goals_ratio))
+    ]
   end
   
   # takes matches that are ordered by date, oldest first

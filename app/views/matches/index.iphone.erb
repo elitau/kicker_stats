@@ -1,9 +1,3 @@
-<%- content_for :topbar do -%>
-  <div id="leftbutton">
-    <%= link_to 'New game', new_game_path %>
-  </div>
-<%- end -%>
-
 <span class="graytitle">Gewinner: <%= show_names_of_players(@game.winner_players) %></span>
 <ul class="pageitem">
   <%- @matches.each do |match| %>

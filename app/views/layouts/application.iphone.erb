@@ -15,7 +15,11 @@
 <body class="<%= yield(:body_class) %>">
   <div id="topbar">
     <%= yield(:topbar) %>
-    <div id="rightbutton">
+    <div id="leftbutton">
+      <%= link_to 'New game', new_game_path %>
+    </div>
+    <div id="rightnav">
+      <%= link_to 'Spieler', players_path %>
       <%= link_to 'Letzte Spiele', games_path %>
     </div>
   </div>

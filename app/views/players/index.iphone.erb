@@ -1,0 +1,16 @@
+<span class="graytitle">Alle Spieler</span>
+<ul class="pageitem">
+  <!-- <li class="textbox">Store list can be combined with any other tag like textboxes or menu items.</li> -->
+	<%- @players.each do |player| -%>
+  	<li class="store">
+  	  <a href="<%= player_path(player) %>">
+  	    <span class="image" style="background-image: url('<%= player.avatar.url(:thumb) %>');"></span>
+  	    <span class="comment"><%= player.goals_ratio %></span>
+  	    <span class="name"><%=h player.username %></span>
+        <!-- <img alt="rating" class="stars" src="images/4stars.png" /> -->
+  	    <span class="starcomment"><%= player.all_games.size %> Spiele insgesamt</span>
+  	    <span class="arrow"></span>
+  	  </a>
+  	</li>
+  <%- end -%>
+</ul>

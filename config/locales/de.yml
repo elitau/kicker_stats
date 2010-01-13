@@ -2,6 +2,15 @@
 # by Clemens Kofler (clemens@railway.at)
 
 de:
+  all_winning_games: Gewonnene Spiele
+  all_winning_matches: Gewonnene Matches
+  all_lost_games: Verlorene Spiele
+  all_lost_matches: Verlorene Matches
+  goals_shot: Geschossene Tore
+  sucked_goals: Kassierte Tore
+  goals_ratio: Torverhältnis
+  
+  
   date:
     formats:
       default: "%d.%m.%Y"
@@ -22,10 +31,10 @@ de:
       long: "%A, %e. %B %Y, %H:%M Uhr"
       time: "%H:%M"
       iphone: "%e. %b, %A, %H:%M Uhr"
-      
+    
     am: "vormittags"
     pm: "nachmittags"
-      
+  
   datetime:
     distance_in_words:
       half_a_minute: 'eine halbe Minute'
@@ -61,7 +70,8 @@ de:
       over_x_years:
         one: 'mehr als 1 Jahr'
         other: 'mehr als {{count}} Jahre'
-      
+    
+  
   number:
     format:
       precision: 2
@@ -84,3 +94,4 @@ de:
       format:
         delimiter: ""
         precision: 1
+  
