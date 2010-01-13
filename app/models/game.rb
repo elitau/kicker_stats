@@ -37,6 +37,10 @@ class Game < ActiveRecord::Base
     return self.winner_players.blank? ? false : true
   end
   
+  def players
+    self.matches.collect(&:players).flatten.uniq
+  end
+  
   # returns nil if the winner could not be calculated (this happen on best_of
   # = 3 and only two matches played until now)
   def winner_players

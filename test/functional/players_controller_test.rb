@@ -30,11 +30,11 @@ class PlayersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  # test "should update player" do
-  #   put :update, :id => players(:fab).to_param, :player => { }
-  #   assert_redirected_to player_path(assigns(:player))
-  # end
-  # 
+  test "should update player" do
+    put :update, :id => players(:fab).to_param, :player => { }
+    assert_redirected_to player_path(assigns(:player))
+  end
+  
   # test "should destroy player" do
   #   assert_difference('Player.count', -1) do
   #     delete :destroy, :id => players(:fab).to_param
