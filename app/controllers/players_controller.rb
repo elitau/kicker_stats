@@ -56,31 +56,31 @@ class PlayersController < ApplicationController
 
   # PUT /players/1
   # PUT /players/1.xml
-  def update
-    # @player = current_player
-    @player = Player.find(params[:id])
-
-    respond_to do |format|
-      if @player.update_attributes(params[:player])
-        flash[:notice] = 'Player profile was successfully updated.'
-        format.html { redirect_to(@player) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @player.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
+  # def update
+  #   # @player = current_player
+  #   @player = Player.find(params[:id])
+  # 
+  #   respond_to do |format|
+  #     if @player.update_attributes(params[:player])
+  #       flash[:notice] = 'Player profile was successfully updated.'
+  #       format.html { redirect_to(@player) }
+  #       format.xml  { head :ok }
+  #     else
+  #       format.html { render :action => "edit" }
+  #       format.xml  { render :xml => @player.errors, :status => :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # DELETE /players/1
   # DELETE /players/1.xml
-  def destroy
-    @player = Player.find(params[:id])
-    @player.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(players_url) }
-      format.xml  { head :ok }
-    end
-  end
+  # def destroy
+  #   @player = Player.find(params[:id])
+  #   @player.destroy
+  # 
+  #   respond_to do |format|
+  #     format.html { redirect_to(players_url) }
+  #     format.xml  { head :ok }
+  #   end
+  # end
 end
