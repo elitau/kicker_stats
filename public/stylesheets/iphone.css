@@ -34,3 +34,15 @@ span.value {
 	padding-right: 10px;
 	border-left: none !important;
 }
+
+span.red{
+	color: red;
+}
+
+span.green{
+	color: green;
+}
+
+span.black{
+	color: black;
+}

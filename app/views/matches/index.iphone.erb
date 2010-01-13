@@ -3,7 +3,7 @@
   <%- @matches.each do |match| %>
     <%- match_winner_player = (match.winner_players.blank? ? match.players.first : match.winner_players.first) -%>
     <li class="store match">
-  	  <a class="noeffect" href="<%= player_path(match_winner_player) %>">
+  	  <a href="<%= player_path(match_winner_player) %>">
         <span class="image" style="background-image: url('<%= match_winner_player.avatar.url(:thumb) %>');"></span>
         <span class="comment match_title">
           <span class="<%= css_class_for_winner(match, "white") %>">
