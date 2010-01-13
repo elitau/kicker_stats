@@ -1,6 +1,6 @@
 .yellow {
-	color: yellow;
-	font-style: yellow;
+/*	color: yellow;*/
+/*	font-style: yellow;*/
 }
 
 .comment {
@@ -49,4 +49,8 @@ span.black{
 
 li > img.player_image {
 	float: right;
+}
+
+li.yellow{
+	background-color: yellow;
 }
