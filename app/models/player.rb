@@ -22,16 +22,19 @@ class Player < ActiveRecord::Base
   # goal_shot
   def goals_shot
     matches.inject(0) do |memo, match|
-      memo + match.goals_shot_for_player(self)
+      memo + match.goals_shot_by_player(self)
     end
   end
   
   # tore, die man rein bekommen hat
   def sucked_goals
-    sum
-    matches.collect do |match|
-      match.goals_shot_for_player(self)
+    matches.inject(0) do |memo, match|
+      memo + match.goals_sucked_by_player(self)
     end
+  end
+  
+  def goals_ratio
+    goals_shot - sucked_goals
   end
   
   def all_winning_matches

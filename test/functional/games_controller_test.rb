@@ -17,8 +17,8 @@ class GamesControllerTest < ActionController::TestCase
     assert_difference('Game.count') do
       post :create, game_attributes(:best_of => 1)
     end
-
-    assert_redirected_to games_path
+    assert game = assigns(:game)
+    assert_redirected_to game_matches_path(game)
   end
   
   test "should render next match form if playing best_of 3" do

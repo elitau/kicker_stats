@@ -38,7 +38,43 @@
 
 <%= link_to 'Edit', edit_player_path(@player) %> |
 <%= link_to 'Back', players_path %>
-
+<br /><br />
+<h2>Allgemeine Statistiken</h2>
+<br />
+<table border="0" cellspacing="5" cellpadding="5">
+  <tr>
+    <td>Gewonnene Spiele</td>
+    <td><%= @player.all_winning_games.size %></td>
+  </tr>
+  <tr>
+    <td>Gewonnene Matches</td>
+    <td><%= @player.all_winning_matches.size %></td>
+  </tr>
+  <tr>
+    <td>Verlorene Spiele</td>
+    <td><%= @player.all_lost_games.size %></td>
+  </tr>
+  <tr>
+    <td>Verlorene Matches</td>
+    <td><%= @player.all_lost_matches.size %></td>
+  </tr>
+  <tr>
+    <td>Geschossene Tore</td>
+    <td><%= @player.goals_shot %></td>
+  </tr>
+  <tr>
+    <td>Kassierte Tore</td>
+    <td><%= @player.sucked_goals %></td>
+  </tr>
+  <tr>
+    <td>Torverhältnis</td>
+    <td><%= show_goals_ratio(@player.goals_ratio) %></td>
+  </tr>
+  
+  
+</table>
+<br />
+<br />
 <h2>Wöchentliche Statistiken für <%=h @player.username %></h2>
 
 <table id="data">

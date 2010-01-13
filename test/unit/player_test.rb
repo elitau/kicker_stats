@@ -30,9 +30,17 @@ class PlayerTest < ActiveSupport::TestCase
   def test_should_have_goals_shot
     player = Player.new
     match = Match.new
-    match.expects(:goals_shot_for_player).with(player).returns(4)
+    match.expects(:goals_shot_by_player).at_least_once.with(player).returns(4)
     player.expects(:matches).returns([match, match])
     assert_equal 8, player.goals_shot
+  end
+  
+  def test_should_have_sucked_goals
+    player = Player.new
+    match = Match.new
+    match.expects(:goals_sucked_by_player).at_least_once.with(player).returns(4)
+    player.expects(:matches).returns([match, match])
+    assert_equal 8, player.sucked_goals
   end
   
 end

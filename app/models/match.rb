@@ -64,11 +64,23 @@ class Match < ActiveRecord::Base
     self.white_players.count == 2
   end
   
-  def goals_shot_for_player(player)
+  def goals_shot_by_player(player)
     if white_players.include?(player)
       white_goals
-    else
+    elsif yellow_players.include?(player)
       yellow_goals
+    else 
+      return nil
+    end
+  end
+  
+  def goals_sucked_by_player(player)
+    if white_players.include?(player)
+      yellow_goals
+    elsif yellow_players.include?(player)
+      white_goals
+    else 
+      return nil
     end
   end
 

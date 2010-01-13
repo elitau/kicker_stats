@@ -34,7 +34,7 @@ class Game < ActiveRecord::Base
   end
   
   def finished?
-    return self.winner_players ? true : false
+    return self.winner_players.blank? ? false : true
   end
   
   # returns nil if the winner could not be calculated (this happen on best_of
@@ -46,6 +46,8 @@ class Game < ActiveRecord::Base
       match_winner_players = self.matches.collect(&:winner_players)
       if match_winner_players[0] == match_winner_players[1]
         match_winner_players[0]
+      elsif self.matches.size < 3
+        []
       else
         match_winner_players[2]
       end

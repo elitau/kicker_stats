@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <th>Username</th>
+    <th>Username (Goals Ratio)</th>
     <th>Name</th>
     <th>All matches</th>
     <th>All won matches</th>
@@ -16,7 +16,7 @@
 
 <% @players.each do |player| %>
   <tr>
-    <td><%=h player.username %></td>
+    <td><%= link_to_player(player) %></td>
     <td><%=h player.full_name %></td>
     <td><%=h player.matches.size %></td>
     <td><%=h player.all_winning_matches.size %></td>

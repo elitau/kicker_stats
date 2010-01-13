@@ -1,6 +1,4 @@
 <%#= link_to "Save", "#", :type => "submit", :class=>"whiteButton" %>
-<%- goals_select_options = options_for_select((0..6).collect{|i| [i.to_s, i.to_s]}) -%>
-
 <% form_for([@game, @match]) do |f| %>
   <%= f.error_messages %>
 
