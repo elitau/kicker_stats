@@ -5,11 +5,8 @@
   <%- @games.each do |game| -%>
     <%- game_winner_player = (game.winner_players.blank? ? game.players.first : game.winner_players.first) -%>
 		<li class="withimage">
-	    <a href="<%= player_path(game_winner_player) %>">
-	      <%= image_tag game_winner_player.avatar.url(:thumb) %>
-	    </a>
 		  <a href="<%= game_matches_path(game) %>">
-        <!-- <img alt="test" src="pics/californiacation.jpg" /> -->
+        <%= image_tag game_winner_player.avatar.url(:thumb) %>
         <span class="comment"><%= l(game.created_at, :format => :iphone) %></span>
 		    <span class="name"><%= show_names_of_game_players(game.matches.first) %></span>
 		    <span class="comment"><%= "#{show_names_of_players(game.winner_players)} hat gewonnen" %></span>
