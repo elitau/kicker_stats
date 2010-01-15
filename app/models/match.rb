@@ -9,6 +9,7 @@ class Match < ActiveRecord::Base
   validates_presence_of :yellow_goals
   validates_presence_of :white_goals
   
+  
   GOALS_TO_WIN = [6,10]
   
   belongs_to :game
@@ -42,7 +43,7 @@ class Match < ActiveRecord::Base
     :order => "id",
     :extend => PlayerExtension
     
-  default_scope :order => 'created_at'
+  default_scope :order => 'created_at DESC'
 
   def winner_players
     if self.white_goals < self.yellow_goals
@@ -81,6 +82,14 @@ class Match < ActiveRecord::Base
       white_goals
     else 
       return nil
+    end
+  end
+
+  def check_for_creep_and_twitter_it
+    if white_goals == 0
+      TwitterClient.update("#{white_players.collect(&:username).join(" und ")} ist gekrochen. HAR HAR HAR")
+    elsif yellow_goals == 0
+      TwitterClient.update("#{yellow_players.collect(&:username).join(" und ")} ist gekrochen. HAR HAR HAR")
     end
   end
 

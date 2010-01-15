@@ -13,6 +13,7 @@ class Game < ActiveRecord::Base
       match.save
       match.teams.create_colored_team(params[:white_player_ids], "white")
       match.teams.create_colored_team(params[:yellow_player_ids], "yellow")
+      match.check_for_creep_and_twitter_it
       return match
     end
   end
@@ -34,11 +35,25 @@ class Game < ActiveRecord::Base
   end
   
   def finished?
-    return self.winner_players.blank? ? false : true
+    if self.winner_players.blank?
+      return false
+    else
+      self.twitter_game_results
+      return true
+    end
+  end
+  
+  def results_for_twitter
+    join_word = (winner_players.size > 1 ? "haben" : "hat")
+    "#{winner_players.collect(&:username).join(" und ")} #{join_word} #{looser_players.collect(&:username).join(" und ")} besiegt."
   end
   
   def players
     self.matches.collect(&:players).flatten.uniq
+  end
+  
+  def looser_players
+    players - winner_players
   end
   
   # returns nil if the winner could not be calculated (this happen on best_of
@@ -56,6 +71,10 @@ class Game < ActiveRecord::Base
         match_winner_players[2]
       end
     end
+  end
+  
+  def twitter_game_results
+    TwitterClient.update(self.results_for_twitter)
   end
   
   def single?

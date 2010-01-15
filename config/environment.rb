@@ -22,6 +22,8 @@ Rails::Initializer.run do |config|
   # config.gem "rubygems"
   config.gem "authlogic"
   config.gem "paperclip"
+  config.gem "twitter"
+  config.gem "railsbros-config_fu", :lib => "config_fu", :source => "http://gems.github.com"
   
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
