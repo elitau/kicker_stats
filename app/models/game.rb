@@ -45,7 +45,7 @@ class Game < ActiveRecord::Base
   
   def results_for_twitter
     join_word = (winner_players.size > 1 ? "haben" : "hat")
-    "#{winner_players.collect(&:username).join(" und ")} #{join_word} #{looser_players.collect(&:username).join(" und ")} besiegt."
+    "#{winner_players.collect(&:username).join(" und ")} #{join_word} #{looser_players.collect(&:username).join(" und ")} besiegt. #kicker"
   end
   
   def players
