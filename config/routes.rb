@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :players, :has_many => :matches
   map.resources :matches, :has_many => :players, :belongs_to => :game, :shallow => true
   map.resources :player_sessions
-  map.resources :players, :has_many => :matches
   map.resources :games, :has_many => :matches
   map.resources :games do |game|
     game.resources :matches, :has_many => :players
@@ -24,7 +24,7 @@ ActionController::Routing::Routes.draw do |map|
   #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
   # This route can be invoked with purchase_url(:id => product.id)
 
-  map.log "log", :controller => "games", :action => "log"
+  # map.log "log", :controller => "games", :action => "log"
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   map.resources :products
 
