@@ -33,7 +33,7 @@ class Statistic
       self.new(:name => :all_lost_matches, :value => player.all_lost_matches.size),
       self.new(:name => :goals_shot, :value => player.goals_shot),
       self.new(:name => :sucked_goals, :value => player.sucked_goals),
-      self.new(:name => :goals_ratio, :value => show_goals_ratio(player.goals_ratio))
+      self.new(:name => :goals_ratio, :value => show_goals_ratio(player))
     ]
   end
   

@@ -1,4 +1,5 @@
 module ApplicationHelper
+  
   def title(title_content)
     content_for(:title) do
       title_content
@@ -26,7 +27,7 @@ module ApplicationHelper
   end
   
   def link_to_player(player)
-    link_to("#{h(player.username)} (#{show_goals_ratio(player.goals_ratio)})", player)
+    link_to(show_goals_ratio(player), player)
   end
   
   def link_to_players(players)
@@ -35,15 +36,15 @@ module ApplicationHelper
     end.join(", ")
   end
   
-  def show_goals_ratio(goals_ratio)
-    css_class = if goals_ratio < 0
+  def show_goals_ratio(player)
+    css_class = if player.goals_ratio < 0
       "red"
-    elsif goals_ratio > 0
+    elsif player.goals_ratio > 0
       "green"
     else
       "black"
     end
-    content_tag(:span, goals_ratio, :class => css_class)
+    content_tag(:span, "#{h(player.username)} (#{player.goals_ratio})", :class => css_class)
   end
   
   def goals_select_options

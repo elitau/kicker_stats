@@ -1,9 +1,9 @@
 <table class="full">
   <tr>
     <th>White Players</th>
-    <th><%= select_with_integer_options("white_goals", 0, 6) %></th>
+    <th><%=raw select_with_integer_options("white_goals", 0, 6) %></th>
     <th> : </th>
-    <th><%= select_with_integer_options("yellow_goals", 0, 6) %></th>
+    <th><%=raw select_with_integer_options("yellow_goals", 0, 6) %></th>
     <th>Yellow Players</th>
   </tr>
   <%- if @game.new_record? -%>

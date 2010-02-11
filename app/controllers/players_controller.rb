@@ -1,5 +1,7 @@
 class PlayersController < ApplicationController
   acts_as_iphone_controller
+  
+  # safe_helper :application
   # GET /players
   # GET /players.xml
   def index

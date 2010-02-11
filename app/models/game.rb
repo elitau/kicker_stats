@@ -2,7 +2,7 @@ class Game < ActiveRecord::Base
   validates_inclusion_of :best_of, :in => [1,3],
                          :message => "{{value}} is not a valid option"
 
-  default_scope :order => 'created_at DESC'
+  default_scope order('created_at DESC')
 
   has_many :matches, :dependent => :destroy do
     def create_match(params)
