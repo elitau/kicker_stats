@@ -23,11 +23,6 @@ class GamesController < ApplicationController
     end
   end
   
-  def log
-    f = File.open("#{RAILS_ROOT}/log/production.log", "r")
-    render :text => "#{f.read}"
-  end
-  
   # GET /games/1
   # GET /games/1.xml
   def show
