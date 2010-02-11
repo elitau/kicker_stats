@@ -1,0 +1,5 @@
+config/initializers/config_fu.rb
+config/initializers/session_store.rb
+kicker_stats.tmproj
+config/database.yml.production
+config/deploy.rb
