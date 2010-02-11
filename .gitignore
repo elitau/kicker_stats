@@ -7,3 +7,6 @@ config/deploy.rb
 db/*.sqlite3
 log/*.log
 tmp/**/*
+bin/*
+vendor/bundler_gems/*
+!vendor/bundler_gems/cache/
