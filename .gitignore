@@ -3,3 +3,7 @@ config/initializers/session_store.rb
 kicker_stats.tmproj
 config/database.yml.production
 config/deploy.rb
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/**/*

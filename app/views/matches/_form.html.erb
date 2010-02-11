@@ -1,3 +1,5 @@
-Eintragen der Ergebnisse vom <%= @game.matches.count + 1 %>. Match:
+<%- if @game -%>
+  Eintragen der Ergebnisse vom <%= @game.matches.count + 1 %>. Match:
+<%- end -%>
 
 <%= render :partial => "shared/new_match_form" %>
