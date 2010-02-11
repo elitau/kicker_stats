@@ -6,7 +6,7 @@ git "git://github.com/rails/rack.git"
 gem 'paperclip'
 gem 'twitter'
 # source 'http://gems.github.com'
-gem "rails", :git => "http://github.com/rails/rails.git"
+# gem "rails", :git => "http://github.com/rails/rails.git"
 # gem "rails", :git => "git://github.com/rails/rails.git"
 gem 'railsbros-config_fu', :require => 'config_fu'
 gem "mysql"
