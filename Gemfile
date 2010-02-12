@@ -1,18 +1,19 @@
 # Edit this Gemfile to bundle your application's dependencies.
 
 # gem "rails", "3.0.0.beta"
-source 'http://gems.github.com'
 git "git://github.com/rails/rack.git"
-
-gem 'paperclip'
-gem 'twitter'
 
 # gem "rails", :git => "http://github.com/rails/rails.git"
 gem "rails", :git => "git://github.com/rails/rails.git"
+
+source 'http://gems.github.com'
+gem 'paperclip'
+gem 'twitter'
+
 gem 'railsbros-config_fu', :require => 'config_fu'
 gem "mysql"
 
-# source 'http://gemcutter.org'
+source 'http://gemcutter.org'
 # gem 'authlogic'
 
 ## Bundle gems used only in certain environments:
