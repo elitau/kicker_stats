@@ -11,14 +11,14 @@
     <th></th>
   </tr>
 
-<% @matches.each do |@match| %>
+<% @matches.each do |match| %>
   <tr>
-    <td class="<%= css_class_for_winner(@match, "white") %>"><%= show_names_of_players(@match.white_players) %></td>
-    <td><%= @match.white_goals %></td>
-    <td><%= @match.yellow_goals %></td>
-    <td class="<%= css_class_for_winner(@match, "yellow") %>"><%= show_names_of_players(@match.yellow_players) %></td>
-    <td><%= link_to @match.created_at.to_s(:short), @match %></td>
-    <td><%= link_to 'Edit', edit_match_path(@match) %></td>
+    <td class="<%= css_class_for_winner(match, "white") %>"><%= show_names_of_players(match.white_players) %></td>
+    <td><%= match.white_goals %></td>
+    <td><%= match.yellow_goals %></td>
+    <td class="<%= css_class_for_winner(match, "yellow") %>"><%= show_names_of_players(match.yellow_players) %></td>
+    <td><%= link_to match.created_at.to_s(:short), match %></td>
+    <td><%= link_to 'Edit', edit_match_path(match) %></td>
   </tr>
 <% end %>
 </table>
