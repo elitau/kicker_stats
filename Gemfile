@@ -1,28 +1,30 @@
 # Edit this Gemfile to bundle your application's dependencies.
+source 'http://gemcutter.org'
 
 
-
-git "git://github.com/rails/rack.git"
+# git "git://github.com/rails/rack.git"
 # git "git://github.com/rails/rails.git"
 # gem "rails", :git => "http://github.com/rails/rails.git"
-# gem "rails", :git => "git://github.com/rails/rails.git"
 
 
 # path "vendor/rails", :glob => "{*/,}*.gemspec"
 gem "rails", "3.0.0.beta"
 
+gem "config_fu"
+gem 'paperclip'
+
 ## Bundle edge rails:
 # gem "rails", :git => "git://github.com/rails/rails.git"
 
-source 'http://gemcutter.org'
+# source :gemcutter
 gem 'twitter'
 # git "git://github.com/thoughtbot/paperclip.git", :branch => "rails3"
-gem 'paperclip'
 
 
-source 'http://gems.github.com'
 
-gem "config_fu"
+# source 'http://gems.github.com'
+
+
 gem "mysql"
 
 
