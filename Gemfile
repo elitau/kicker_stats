@@ -12,6 +12,7 @@ gem "rails"
 
 gem "config_fu"
 gem 'paperclip'
+gem 'authlogic'
 
 ## Bundle edge rails:
 # gem "rails", :git => "git://github.com/rails/rails.git"
