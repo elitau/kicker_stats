@@ -8,7 +8,7 @@ source 'http://gemcutter.org'
 
 
 # path "vendor/rails", :glob => "{*/,}*.gemspec"
-gem "rails", "3.0.0.beta"
+gem "rails"
 
 gem "config_fu"
 gem 'paperclip'
