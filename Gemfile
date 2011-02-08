@@ -26,7 +26,7 @@ gem 'twitter'
 # source 'http://gems.github.com'
 
 
-gem "mysql"
+gem "ruby-mysql"
 
 
 # gem 'authlogic'
