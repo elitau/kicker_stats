@@ -1,5 +1,5 @@
 # Edit this Gemfile to bundle your application's dependencies.
-source 'http://gemcutter.org'
+source 'http://rubygems.org'
 
 
 # git "git://github.com/rails/rack.git"

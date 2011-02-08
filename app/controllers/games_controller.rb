@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  acts_as_iphone_controller #:test_mode => true #, :ignore_iphone_user_agent => true
+  # acts_as_iphone_controller #:test_mode => true #, :ignore_iphone_user_agent => true
   
   # ich glaub, das ist deprecated
   before_filter :convert_iphone_params
