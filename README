@@ -47,16 +47,26 @@ post /game
 Payload JSON looks like this:
 
 {
-  teams: {
-    team_a: ["supernick@example.com"],
-    team_b: ["alex@example.com"]
-  },
-  results: [
-    {
-      team_a_goals: 6,
-      team_b_goals: 3
-    }
-  ]
+  game: {
+    teams: {
+      team_a: ["supernick@example.com"],
+      team_b: ["alex@example.com"]
+    },
+    results: [
+      {
+        team_a_goals: 6,
+        team_b_goals: 3
+      },
+      {
+        team_a_goals: 4,
+        team_b_goals: 6
+      },
+      {
+        team_a_goals: 6,
+        team_b_goals: 0
+      }
+    ]
+  }   
 }
 
 === List all games
