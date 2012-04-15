@@ -1,0 +1,1 @@
+/Users/ede/Dropbox/syncit/Documents/workspace/rails/kicker_stats_rails3/config/initializers/cookie_verification_secret.rb
