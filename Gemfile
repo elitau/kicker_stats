@@ -26,13 +26,16 @@ gem 'twitter'
 # source 'http://gems.github.com'
 
 
-gem "ruby-mysql"
-
+group :production do
+  gem 'pg'
+end
 
 # gem 'authlogic'
 
 ## Bundle gems used only in certain environments:
 # gem "rspec", :group => :test
-group :test do
+group :test, :development do
   # gem "mocha"
+  gem "ruby-mysql"
+  
 end
