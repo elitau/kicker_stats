@@ -31,12 +31,9 @@ group :production do
   gem 'thin'
 end
 
-# gem 'authlogic'
-
 ## Bundle gems used only in certain environments:
 # gem "rspec", :group => :test
 group :test, :development do
-  # gem "mocha"
-  gem "ruby-mysql"
-
+  gem "mocha"
+  gem "mysql2", '< 0.3'
 end
