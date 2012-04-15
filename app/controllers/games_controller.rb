@@ -20,7 +20,7 @@ class GamesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      respond_to_iphone(format)
+      # respond_to_iphone(format)
       # # format.iphone { render :file => "/games/show.html.erb", :layout => true }
       format.xml  { render :xml => @game }
     end

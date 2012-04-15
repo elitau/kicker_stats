@@ -1,9 +1,9 @@
-<% form_for(@game) do |f| %>
+<%= form_for(@game) do |f| %>
   <%= f.error_messages %>
 
   <p>Best_of
-    <%= radio_button_tag :best_of, 1 %>1
-    <%= radio_button_tag :best_of, 3, :checked => true %>3
+    <%= radio_button_tag :best_of, 1 %> 1
+    <%= radio_button_tag :best_of, 3, :checked => true %> 3
   </p>
   
   <%= render :partial => "shared/new_match_form" %>
@@ -20,4 +20,4 @@
         element.form.second_yellow_select.disabled = !element.checked;
     }
   </script>
-<% end %>
+<% end -%>

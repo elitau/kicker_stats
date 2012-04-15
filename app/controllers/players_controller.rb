@@ -27,7 +27,7 @@ class PlayersController < ApplicationController
   # GET /players/1.xml
   def show
     @player = Player.find(params[:id])
-    @statistics = Statistic.create_detailed_statistics_for(@player)
+    # @statistics = Statistic.create_detailed_statistics_for(@player)
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @player }

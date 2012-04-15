@@ -15,11 +15,7 @@ class Player < ActiveRecord::Base
   def full_name
     [firstname, lastname].compact.join(' ')
   end
-  
-  def weekly_statistics
-    Statistic.create_weekly_statistics_for(self)
-  end
-  
+    
   # goal_shot
   def goals_shot
     matches.inject(0) do |memo, match|

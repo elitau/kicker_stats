@@ -41,34 +41,9 @@
 <br /><br />
 <h2>Allgemeine Statistiken</h2>
 <br />
-<table border="0" cellspacing="5" cellpadding="5">
-  <%- @statistics.each do |statistic| -%>
-    <tr>
-      <td><%= t(statistic.name) %></td>
-      <td><%= statistic.value %></td>
-    </tr>
-  <%- end -%>
-</table>
+Currently disabled
 <br />
 <br />
-<h2>Wöchentliche Statistiken für <%=h @player.username %></h2>
-
-<table id="data">
-  <tfoot>
-    <tr>
-      <%- @player.weekly_statistics.each do |statistic| -%>
-        <th><%= statistic.date.to_date.cweek %></th>
-      <%- end -%>
-    </tr>
-  </tfoot>
-  <tbody>
-    <tr>
-      <%- @player.weekly_statistics.each do |statistic| -%>
-        <td><%= statistic.value %></td>
-      <%- end -%>
-    </tr>
-  </tbody>
-</table>
 
 <div id="holder"></div>
 
