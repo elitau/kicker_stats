@@ -33,14 +33,14 @@ class Match < ActiveRecord::Base
     :through    => :teams, 
     :source     => :player, 
     :conditions => ["teams.team_color = ?", "white"],
-    :order => "id",
+    # :order => "id",
     :extend => PlayerExtension
 
   has_many :yellow_players, 
     :through    => :teams, 
     :source     => :player, 
     :conditions => ["teams.team_color = ?", "yellow"],
-    :order => "id",
+    # :order => "id",
     :extend => PlayerExtension
     
   default_scope :order => 'created_at DESC'

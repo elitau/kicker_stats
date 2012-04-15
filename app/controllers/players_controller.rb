@@ -1,6 +1,4 @@
 class PlayersController < ApplicationController
-  acts_as_iphone_controller
-  
   # safe_helper :application
   # GET /players
   # GET /players.xml
@@ -10,7 +8,7 @@ class PlayersController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @players }
-      format.iphone
+      # format.iphone
     end
   end
 
@@ -33,7 +31,7 @@ class PlayersController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @player }
-      format.iphone
+      # format.iphone
     end
   end
 

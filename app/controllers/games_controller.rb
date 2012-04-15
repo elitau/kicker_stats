@@ -1,24 +1,14 @@
 class GamesController < ApplicationController
-  acts_as_iphone_controller #:test_mode => true #, :ignore_iphone_user_agent => true
-  
-  # ich glaub, das ist deprecated
-  before_filter :convert_iphone_params
-  
+
   # GET /games
   # GET /games.xml
   def index
     @games = Game.all
-    
-    logger.warn { "========================================" }
-    logger.warn { "========================================" }
-    logger.warn { "#{request.user_agent}" }
-    logger.warn { "========================================" }
-    logger.warn { "========================================" }
-    
+        
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @games }
-      format.iphone #{ render :layout => "application2" }
+      # format.iphone #{ render :layout => "application2" }
       # respond_to_iphone(format)
     end
   end
@@ -31,7 +21,7 @@ class GamesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       respond_to_iphone(format)
-      # format.iphone { render :file => "/games/show.html.erb", :layout => true }
+      # # format.iphone { render :file => "/games/show.html.erb", :layout => true }
       format.xml  { render :xml => @game }
     end
   end
@@ -44,7 +34,7 @@ class GamesController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @game }
-      format.iphone #{ render :layout => "application2" }
+      # format.iphone #{ render :layout => "application2" }
     end
   end
 
@@ -66,7 +56,7 @@ class GamesController < ApplicationController
           go_to = new_game_match_path(@game)
         end
         format.html { redirect_to(go_to) }
-        format.iphone { redirect_to(go_to) }
+        # format.iphone { redirect_to(go_to) }
         format.xml  { render :xml => @game, :status => :created, :location => @game }
       else
         format.html { render :action => "new" }
@@ -103,16 +93,5 @@ class GamesController < ApplicationController
       format.xml  { head :ok }
     end
   end
-  
-  private
-  def convert_iphone_params
-    if is_iphone_request? and params[:game]
-      params[:best_of] = params[:game][:best_of]
-    end
-  end
-  
-  def respond_to_iphone(format)
-    @title = "#{params[:controller].humanize}: #{params[:action]}"
-    format.iphone { render :file => "/#{params[:controller]}/#{params[:action]}.html.erb", :layout => true }
-  end
+
 end

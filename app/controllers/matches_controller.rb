@@ -1,5 +1,5 @@
 class MatchesController < ApplicationController
-  acts_as_iphone_controller #:test_mode => true
+  # acts_as_iphone_controller #:test_mode => true
   
   before_filter :load_match_and_game
   
@@ -15,7 +15,7 @@ class MatchesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @matches }
-      format.iphone
+      # format.iphone
     end
   end
 
@@ -38,7 +38,7 @@ class MatchesController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @match }
-      format.iphone 
+      # format.iphone 
     end
   end
 
@@ -61,14 +61,14 @@ class MatchesController < ApplicationController
           go_to = new_game_match_path(@game)
         end
         format.html { redirect_to(go_to) }
-        format.iphone { redirect_to(go_to) }
+        # format.iphone { redirect_to(go_to) }
         format.xml  { render :xml => @match, :status => :created, :location => @match }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @match.errors, :status => :unprocessable_entity }
       end
       
-      format.iphone { @matches = Match.all; redirect_to :action => "index" }
+      # format.iphone { @matches = Match.all; redirect_to :action => "index" }
     end
   end
 
