@@ -38,5 +38,8 @@ module Kickern
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters << :password
+
+    # https://devcenter.heroku.com/articles/rails3x-asset-pipeline-cedar#troubleshooting
+    config.assets.initialize_on_precompile = false
   end
 end
