@@ -8,7 +8,7 @@ source 'http://rubygems.org'
 
 
 # path "vendor/rails", :glob => "{*/,}*.gemspec"
-gem "rails"
+gem 'rails', '~> 3.0.10'
 
 gem "config_fu"
 gem 'paperclip'
