@@ -28,6 +28,7 @@ gem 'twitter'
 
 group :production do
   gem 'pg'
+  gem 'thin'
 end
 
 # gem 'authlogic'
@@ -37,5 +38,5 @@ end
 group :test, :development do
   # gem "mocha"
   gem "ruby-mysql"
-  
+
 end
