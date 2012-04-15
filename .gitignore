@@ -11,3 +11,4 @@ bin/*
 vendor/bundler_gems/*
 !vendor/bundler_gems/cache/
 .DS_Store
+.env

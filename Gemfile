@@ -36,5 +36,5 @@ end
 # gem "rspec", :group => :test
 group :test, :development do
   gem "mocha"
-  gem "mysql2", '< 0.3'
+  gem "mysql2"
 end
