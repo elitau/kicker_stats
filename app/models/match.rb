@@ -16,7 +16,7 @@ class Match < ActiveRecord::Base
   has_many :teams, :dependent => :destroy do
     def create_colored_team(player_ids, color)
       player_ids.each do |player_id|
-        proxy_owner.teams.create(
+        proxy_association.owner.teams.create(
           :team_color => color,
           :player_id => player_id
         )

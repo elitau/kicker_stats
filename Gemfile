@@ -36,6 +36,10 @@ end
 ## Bundle gems used only in certain environments:
 # gem "rspec", :group => :test
 group :test, :development do
-  gem "mocha"
   gem "mysql2"
+end
+
+group :test do
+  gem "mocha"
+  gem 'jasmine'
 end

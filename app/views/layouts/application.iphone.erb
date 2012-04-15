@@ -1,34 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
-<head>
-  <meta content="yes" name="apple-mobile-web-app-capable" />
-  <meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type" />
-  <meta content="minimum-scale=1.0, width=device-width, maximum-scale=0.6667, user-scalable=no" name="viewport" />
-  <%= stylesheet_link_tag "iwebkit/uncompressed_style", "iphone" %>
-  <%= javascript_include_tag "iwebkit/functions" %>
-  <title>Kicker App</title>
-  <meta content="keyword1,keyword2,keyword3" name="keywords" />
-  <meta content="Description of your site" name="description" />
-</head>
-
-<body class="<%= yield(:body_class) %>">
-  <div id="topbar">
-    <%= yield(:topbar) %>
-    <div id="leftbutton">
-      <%= link_to 'New game', new_game_path %>
-    </div>
-    <div id="rightnav">
-      <%= link_to 'Spieler', players_path %>
-      <%= link_to 'Letzte Spiele', games_path %>
-    </div>
-  </div>
-  <div id="content">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+    </title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+    <style>
+        /* App custom styles */
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
+    </script>
+    <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js">
+    </script>
+  </head>
+  <body>
     <%= yield %>
-  </div>
-  <div id="footer">
-  	<!-- please keep this line of text for three reasons: to help us, to thank us and just because it is cool-->
-  	<a class="noeffect" href="http://iwebkit.net">Powered by iWebKit</a></div>
-</body>
-
+  </body>
 </html>

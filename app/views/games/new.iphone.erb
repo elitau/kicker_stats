@@ -1,54 +1,90 @@
-<% form_for(@game) do |f| %>
-  <span class="graytitle">1 oder 3 Matches?</span>
-  <ul class="pageitem">
-  	<li class="form">
-  	  <span class="choice">
-  	    <span class="name">1 Match</span>
-  	    <input name="best_of" type="radio" value="1" /></span>
-  	</li>
-  	<li class="form">
-  	  <span class="choice">
-  	    <span class="name">3 Matches</span>
-  	    <input name="best_of" type="radio" value="3" checked="checked"/>
-  	  </span>
-  	</li>
-  </ul>
+<div data-role="page" id="page1">
+  <div data-theme="a" data-role="header">
+      <h3>
+          Header
+      </h3>
+  </div>
+  <%= form_for(@game) do |f| %>
+      <div data-role="content">
+          <div class="ui-grid-a">
+              <div class="ui-block-a">
+                  <h2>
+                      Team A
+                  </h2>
+              </div>
+              <div class="ui-block-b">
+                  <h2>
+                      Team B
+                  </h2>
+              </div>
 
-  <span class="graytitle">Weißer Spieler</span>
-  <ul class="pageitem">
-    <li class="form">
-      <%= select_tag(
-            "white_player_ids[]", 
-            options_for_select(Player.all.collect {|p| [ p.username, p.id ] })
-          )  %>
-      <span class="arrow"></span>
-    </li>
-  
-    <li class="form">
-      <%= select_tag(:white_goals, goals_select_options) %>
-      <span class="arrow"></span>
-    </li>
-  </ul>
+              <div class="ui-block-a">
+                <h3>
+                  <div data-role="fieldcontain">
+                    <label for="player_1_name">
+                    </label>
+                    <input type="text" name="[game]teams[team_a][]" id="player_1_name" value="max@example.com"/>
+                  </div>
+                </h3>
+              </div>
+              <div class="ui-block-b">
+                <div data-role="fieldcontain">
+                  <label for="player_2_name">
+                  </label>
+                  <input type="text" name="[game]teams[team_b][]" id="player_2_name" value="moritz@example.com"/>
+                </div>
+              </div>
+              <div class="ui-block-a">
+                <div data-role="fieldcontain">
+                  <label for="player_3_name">
+                  </label>
+                  <input type="text" name="[game]teams[team_a][]" id="player_3_name" value="fritz@example.com"/>
+                </div>
 
-  <span class="graytitle yellow">Gelber Spieler</span>
-  <ul class="pageitem">
-    <li class="form">
-      <%= select_tag(
-            "yellow_player_ids[]", 
-            options_for_select(Player.all.collect {|p| [ p.username, p.id ] }, Player.all[1].id)
-          ) %>
-      <span class="arrow"></span>
-    </li>
-  
-    <li class="form">
-      <%= select_tag(:yellow_goals, goals_select_options) %>
-      <span class="arrow"></span>
-    </li>
-  </ul>
-
-  <ul class="pageitem">
-  	<li class="form">
-    <input name="Submit input" type="submit" value="Submit input" class="whiteButton" /></li>
-  </ul>
-<%- end -%>
-
+                  <a data-role="button" data-transition="fade" href="#page1">
+                      Add Player
+                  </a>
+              </div>
+              <div class="ui-block-b">
+                  <a data-role="button" data-transition="fade" href="#page1">
+                      Add Player
+                  </a>
+              </div>
+          </div>
+          <div class="ui-grid-a">
+            <% 3.times do |i| %>
+              <div class="ui-block-a">
+                <div data-role="fieldcontain">
+                  <label for="result_<%= i + 1 %>_team_a">
+                  </label>
+                  <select name="game[results_<%= i + 1 %>[team_a]" id="result_<%= i + 1 %>_team_a">
+                    <%= 10.times do |i| %>
+                      <option value="<%= i + 1 %>">
+                        <%= i + 1 %>
+                      </option>
+                    <% end %>
+                  </select>
+                </div>
+              </div>
+              <div class="ui-block-b">
+                <div data-role="fieldcontain">
+                  <label for="result_<%= i + 1 %>_team_b">
+                  </label>
+                  <select name="game[results_<%= i + 1 %>[team_b]" id="result_<%= i + 1 %>_team_b">
+                    <%= 10.times do |i| %>
+                      <option value="<%= i + 1 %>">
+                        <%= i + 1 %>
+                      </option>
+                    <% end %>
+                  </select>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <input type="submit" data-icon="check" data-iconpos="left" value="Submit" />
+      </div>
+  <%- end -%>
+</div>
+<script>
+  //App custom javascript
+</script>

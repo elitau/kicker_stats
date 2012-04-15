@@ -6,7 +6,7 @@ class Game < ActiveRecord::Base
 
   has_many :matches, :dependent => :destroy do
     def create_match(params)
-      match = proxy_owner.matches.build(
+      match = proxy_association.owner.matches.build(
         :white_goals      => params[:white_goals],
         :yellow_goals     => params[:yellow_goals]
       )
