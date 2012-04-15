@@ -14,6 +14,7 @@ gem "config_fu"
 gem 'paperclip'
 gem 'authlogic'
 gem 'jquery-rails'
+gem "dynamic_form"
 
 ## Bundle edge rails:
 # gem "rails", :git => "git://github.com/rails/rails.git"
