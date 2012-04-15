@@ -1,4 +1,4 @@
-KickerStatsRails3::Application.routes.draw do |map|
+KickerStatsRails3::Application.routes.draw do
 
   resources :matches do
     resources :players

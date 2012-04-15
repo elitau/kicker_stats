@@ -7,4 +7,4 @@ require 'rake'
 require 'rake/testtask'
 require 'rdoc/task'
 
-Rails::Application.load_tasks
+KickerStatsRails3::Application.load_tasks

@@ -13,6 +13,7 @@ gem 'rails', '~> 3.0.10'
 gem "config_fu"
 gem 'paperclip'
 gem 'authlogic'
+gem 'jquery-rails'
 
 ## Bundle edge rails:
 # gem "rails", :git => "git://github.com/rails/rails.git"
