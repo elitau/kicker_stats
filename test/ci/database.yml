@@ -5,6 +5,6 @@ mysql:
   encoding: utf8
 
 postgres:
-  adapter: postgresql
+  adapter: pg
   database: kicker_stats_test
   username: postgres

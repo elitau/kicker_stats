@@ -1,6 +1,7 @@
 ## Kickern App
 Save and view your kicker games. List places where a kickertisch is available.
 
+[![Build Status](https://secure.travis-ci.org/elitau/kicker_stats.png?branch=master)](http://travis-ci.org/elitau/kicker_stats)
 
 ## Players
 A player has a nickname and an email address. A player is identified/unique by email.
