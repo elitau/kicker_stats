@@ -11,3 +11,12 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
 end
+
+
+# Config for travis-ci
+configs = YAML.load_file('test/ci/database.yml')
+ActiveRecord::Base.configurations = configs
+
+db_name = ENV['DB'] || 'sqlite'
+ActiveRecord::Base.establish_connection(db_name)
+ActiveRecord::Base.default_timezone = :utc
