@@ -4,3 +4,6 @@ rvm:
 before_script:
   - mysql -e 'create database kicker_stats_test;'
   - psql -c 'create database kicker_stats_test;' -U postgres
+env:
+  - DB=mysql
+  - DB=postgres
